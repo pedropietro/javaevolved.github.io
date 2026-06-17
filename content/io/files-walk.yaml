@@ -1,0 +1,55 @@
+---
+id: 119
+slug: "files-walk"
+title: "Files.walk() for recursive traversal"
+category: "io"
+difficulty: "intermediate"
+jdkVersion: "8"
+oldLabel: "Recursive File API"
+modernLabel: "Java 8+"
+oldApproach: "Manual recursion"
+modernApproach: "Files.walk()"
+oldCode: |-
+  void visit(File dir) {
+      File[] files = dir.listFiles();
+      if (files == null) return;
+
+      for (File file : files) {
+          if (file.isDirectory()) {
+              visit(file);
+          } else if (file.getName().endsWith(".java")) {
+              System.out.println(file);
+          }
+      }
+  }
+modernCode: |-
+  try (Stream<Path> paths = Files.walk(root)) {
+      paths
+          .filter(Files::isRegularFile)
+          .filter(p -> p.toString().endsWith(".java"))
+          .forEach(System.out::println);
+  }
+summary: "Use Files.walk() to traverse directory trees as a stream of Path values."
+explanation: "The old File API pushes you toward hand-written recursion, null checks, and string-based path handling. Files.walk() exposes a directory tree as a Stream<Path>, so traversal can be filtered, mapped, limited, and closed with try-with-resources. It composes naturally with the rest of the NIO.2 API."
+whyModernWins:
+- icon: "🌳"
+  title: "Stream traversal"
+  desc: "Directory walking becomes a normal stream pipeline with filters and maps."
+- icon: "🛡️"
+  title: "Resource-safe"
+  desc: "try-with-resources closes file-system resources owned by the stream."
+- icon: "📁"
+  title: "Path-based"
+  desc: "Uses Path and Files instead of legacy File and string-heavy path logic."
+support:
+  state: "available"
+  description: "Available since JDK 8 (March 2014)"
+prev: "concurrency/completablefuture-timeouts"
+next: "errors/objects-check-index-range"
+related:
+- "io/path-of"
+- "io/reading-files"
+- "io/files-mismatch"
+docs:
+- title: "Files.walk() Javadoc"
+  href: "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Files.html#walk(java.nio.file.Path,java.nio.file.FileVisitOption...)"
