@@ -1,0 +1,53 @@
+---
+id: 121
+slug: "clock-for-testable-time"
+title: "Clock for testable time"
+category: "datetime"
+difficulty: "beginner"
+jdkVersion: "8"
+oldLabel: "System time"
+modernLabel: "Java 8+"
+oldApproach: "Hard-coded now()"
+modernApproach: "Injected Clock"
+oldCode: |-
+  class TokenService {
+      boolean expired(Instant expiresAt) {
+          return Instant.now().isAfter(expiresAt);
+      }
+  }
+modernCode: |-
+  class TokenService {
+      private final Clock clock;
+
+      TokenService(Clock clock) {
+          this.clock = clock;
+      }
+
+      boolean expired(Instant expiresAt) {
+          return Instant.now(clock).isAfter(expiresAt);
+      }
+  }
+summary: "Inject java.time.Clock instead of hard-coding the system clock in date/time logic."
+explanation: "Calling now() directly inside domain code makes time-dependent behavior hard to test. A Clock lets production code use the system clock while tests provide Clock.fixed() or Clock.offset(). The logic still uses the java.time API, but time becomes an explicit dependency rather than hidden global state."
+whyModernWins:
+- icon: "🧪"
+  title: "Deterministic tests"
+  desc: "Tests can freeze time with Clock.fixed() instead of sleeping or racing the real clock."
+- icon: "👁"
+  title: "Explicit dependency"
+  desc: "Classes that depend on time say so in their constructor."
+- icon: "🌍"
+  title: "Zone-aware"
+  desc: "Clock carries a ZoneId, making time-zone decisions visible and configurable."
+support:
+  state: "available"
+  description: "Available since JDK 8 (March 2014)"
+prev: "errors/objects-check-index-range"
+next: "security/constant-time-comparison"
+related:
+- "datetime/java-time-basics"
+- "datetime/duration-and-period"
+- "datetime/instant-precision"
+docs:
+- title: "Clock Javadoc"
+  href: "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/Clock.html"
