@@ -4,7 +4,7 @@ slug: "constant-time-comparison"
 title: "Constant-time byte comparison"
 category: "security"
 difficulty: "intermediate"
-jdkVersion: "6"
+jdkVersion: "8"
 oldLabel: "Naive equality"
 modernLabel: "JDK API"
 oldApproach: "Arrays.equals() for secrets"
@@ -32,7 +32,7 @@ whyModernWins:
   desc: "Reviewers can immediately see the comparison is security-sensitive."
 support:
   state: "available"
-  description: "Available in the JDK security API; recommended for secret-derived byte arrays."
+  description: "Available in all supported modern JDKs; recommended for secret-derived byte arrays."
 prev: "datetime/clock-for-testable-time"
 next: "tooling/javac-release-flag"
 related:

@@ -1,0 +1,17 @@
+title: "Comparação de bytes em tempo constante"
+oldApproach: "Arrays.equals() para segredos"
+modernApproach: "MessageDigest.isEqual()"
+summary: "Use MessageDigest.isEqual() ao comparar MACs, assinaturas, tokens ou hashes de senha."
+explanation: "Helpers comuns de igualdade podem retornar assim que encontram uma diferença, o que é aceitável para dados comuns, mas indesejável para bytes derivados de segredos. MessageDigest.isEqual() foi projetado para comparações de arrays de bytes sensíveis à segurança e evita o padrão óbvio de saída antecipada. Use-o para valores como MACs, digests, assinaturas e tokens de verificação."
+whyModernWins:
+- icon: "🔐"
+  title: "Checagens de segredo mais seguras"
+  desc: "Evita o formato normal de comparação com saída antecipada usado para dados não secretos."
+- icon: "🧹"
+  title: "Sem criptografia customizada"
+  desc: "Use o helper do JDK em vez de escrever seu próprio loop de comparação de bytes."
+- icon: "🎯"
+  title: "Intenção clara"
+  desc: "Revisores veem imediatamente que a comparação é sensível à segurança."
+support:
+  description: "Disponível em todos os JDKs modernos suportados; recomendado para arrays de bytes derivados de segredos."

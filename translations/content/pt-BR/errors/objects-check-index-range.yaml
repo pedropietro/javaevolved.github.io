@@ -1,0 +1,17 @@
+title: "Verificações de intervalo de índice com Objects"
+oldApproach: "Validação manual de limites"
+modernApproach: "Objects.checkFromIndexSize()"
+summary: "Use Objects.checkIndex(), checkFromToIndex() e checkFromIndexSize() para erros de limites consistentes."
+explanation: "Verificações manuais de intervalo são fáceis de errar de forma sutil, especialmente quando offset e length podem estourar ou quando a mensagem de exceção precisa ser consistente. Os helpers de intervalo de Objects centralizam padrões comuns de validação de índice e retornam o índice validado, permitindo que o valor verificado siga diretamente para a próxima operação."
+whyModernWins:
+- icon: "🔒"
+  title: "Menos bugs de borda"
+  desc: "O JDK trata casos comuns de off-by-one e intervalos inválidos de forma consistente."
+- icon: "🧹"
+  title: "Menos código customizado"
+  desc: "Substitua blocos if repetidos e mensagens de exceção ad hoc por um helper."
+- icon: "➡️"
+  title: "Componível"
+  desc: "O índice validado é retornado, então pode alimentar o slice ou lookup seguinte."
+support:
+  description: "Disponível desde o JDK 9 (setembro de 2017)"
