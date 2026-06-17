@@ -1,0 +1,17 @@
+title: "Null-safe сортировка с Comparator"
+oldApproach: "Пользовательские ветки сравнения"
+modernApproach: "Comparator.nullsLast()"
+summary: "Используйте Comparator.nullsFirst() или nullsLast() вместо ручных веток для null."
+explanation: "Ручная сортировка значений, которые могут быть null, часто повторяет одну и ту же хрупкую цепочку if/else в каждом comparator. Comparator.nullsFirst() и nullsLast() оборачивают реальный порядок сортировки и явно показывают политику для null. Код становится короче, читабельнее и с меньшей вероятностью случайно выбросит NullPointerException во время сортировки."
+whyModernWins:
+- icon: "🧹"
+  title: "Меньше ветвлений"
+  desc: "Один фабричный метод заменяет несколько повторяющихся проверок на null."
+- icon: "👁"
+  title: "Ясная политика"
+  desc: "Код сразу показывает, идут ли значения null первыми или последними."
+- icon: "🔒"
+  title: "Безопаснее сортировка"
+  desc: "Обернутый comparator вызывается только когда оба значения не равны null."
+support:
+  description: "Доступно с JDK 8 (март 2014)"
