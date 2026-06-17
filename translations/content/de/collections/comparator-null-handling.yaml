@@ -1,0 +1,17 @@
+title: "Null-sichere Sortierung mit Comparator"
+oldApproach: "Eigene Vergleichszweige"
+modernApproach: "Comparator.nullsLast()"
+summary: "Nutze Comparator.nullsFirst() oder nullsLast() statt handgeschriebener null-Zweige."
+explanation: "Nullable Werte von Hand zu sortieren wiederholt oft dieselbe fragile if/else-Kette in jedem Comparator. Comparator.nullsFirst() und nullsLast() umhüllen die eigentliche Sortierung und machen die null-Strategie explizit. Das Ergebnis ist kürzer, leichter lesbar und wirft beim Sortieren seltener versehentlich eine NullPointerException."
+whyModernWins:
+- icon: "🧹"
+  title: "Weniger Verzweigungen"
+  desc: "Eine Factory-Methode ersetzt mehrere wiederholte null-Prüfungen."
+- icon: "👁"
+  title: "Klare Strategie"
+  desc: "Der Code zeigt sofort, ob null-Werte zuerst oder zuletzt erscheinen."
+- icon: "🔒"
+  title: "Sichereres Sortieren"
+  desc: "Der umhüllte Comparator wird nur aufgerufen, wenn beide Werte nicht null sind."
+support:
+  description: "Verfügbar seit JDK 8 (März 2014)"

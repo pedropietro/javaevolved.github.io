@@ -1,0 +1,17 @@
+title: "Bytevergleich in konstanter Zeit"
+oldApproach: "Arrays.equals() für Geheimnisse"
+modernApproach: "MessageDigest.isEqual()"
+summary: "Nutze MessageDigest.isEqual(), wenn du MACs, Signaturen, Tokens oder Passwort-Hashes vergleichst."
+explanation: "Normale Gleichheitshelfer können zurückkehren, sobald sie einen Unterschied finden; das ist für gewöhnliche Daten in Ordnung, aber für aus Geheimnissen abgeleitete Bytes unerwünscht. MessageDigest.isEqual() ist für sicherheitssensitive Byte-Array-Vergleiche gedacht und vermeidet das offensichtliche Early-Exit-Muster. Verwende es für Werte wie MACs, Digests, Signaturen und Verifikationstokens."
+whyModernWins:
+- icon: "🔐"
+  title: "Sicherere Secret-Prüfungen"
+  desc: "Vermeidet die normale Early-Exit-Vergleichsform für nicht geheime Daten."
+- icon: "🧹"
+  title: "Keine eigene Kryptografie"
+  desc: "Nutze den JDK-Helfer, statt eine eigene Bytevergleichsschleife zu schreiben."
+- icon: "🎯"
+  title: "Klare Absicht"
+  desc: "Reviewer erkennen sofort, dass der Vergleich sicherheitssensitiv ist."
+support:
+  description: "In allen unterstützten modernen JDKs verfügbar; empfohlen für aus Geheimnissen abgeleitete Byte-Arrays."
