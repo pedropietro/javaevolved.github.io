@@ -1,0 +1,17 @@
+title: "テスト可能な時刻のための Clock"
+oldApproach: "システム時刻"
+modernApproach: "注入された Clock"
+summary: "日時ロジックでシステム時計をハードコードせず、java.time.Clock を注入します。"
+explanation: "ドメインコードの中で now() を直接呼ぶと、時刻に依存する振る舞いのテストが難しくなります。Clock を使うと、本番コードではシステム時計を使い、テストでは Clock.fixed() や Clock.offset() を渡せます。ロジックは引き続き java.time API を使いますが、時刻は隠れたグローバル状態ではなく明示的な依存関係になります。"
+whyModernWins:
+- icon: "🧪"
+  title: "決定的なテスト"
+  desc: "テストは sleep や実時計との競争ではなく、Clock.fixed() で時刻を固定できます。"
+- icon: "👁"
+  title: "依存関係が明示的"
+  desc: "時刻に依存するクラスは、それをコンストラクタで示します。"
+- icon: "🌍"
+  title: "タイムゾーン対応"
+  desc: "Clock は ZoneId を保持し、タイムゾーンの判断を可視化して設定可能にします。"
+support:
+  description: "JDK 8 以降で利用可能（2014年3月）"

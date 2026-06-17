@@ -1,0 +1,17 @@
+title: "CompletableFuture のタイムアウト"
+oldApproach: "手動のスケジュールタスク"
+modernApproach: "orTimeout()"
+summary: "別の scheduler ではなく CompletableFuture.orTimeout() または completeOnTimeout() を使います。"
+explanation: "Java 9 より前は、CompletableFuture にタイムアウトを設定するには ScheduledExecutorService を作成し、future を手動で完了させるタスクを接続する必要がありました。タイムアウトメソッドはこの振る舞いを future 自身に持たせます。操作を失敗させたい場合は orTimeout()、フォールバック値を返したい場合は completeOnTimeout() を使います。"
+whyModernWins:
+- icon: "⏱️"
+  title: "組み込みタイムアウト"
+  desc: "タイムアウト方針が非同期計算に直接結び付きます。"
+- icon: "🧹"
+  title: "scheduler の定型コード不要"
+  desc: "追加 executor、スケジュールタスク、手動の例外完了ブロックが不要です。"
+- icon: "🔀"
+  title: "失敗か fallback が明確"
+  desc: "失敗には orTimeout()、デフォルト値には completeOnTimeout() を選びます。"
+support:
+  description: "JDK 9 以降で利用可能（2017年9月）"

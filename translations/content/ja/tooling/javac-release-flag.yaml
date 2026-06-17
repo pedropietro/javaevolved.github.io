@@ -1,0 +1,17 @@
+title: "クロスコンパイルには javac --release"
+oldApproach: "-source と -target"
+modernApproach: "--release"
+summary: "古い Java バージョン向けにコンパイルする場合は、-source と -target だけでなく javac --release を使います。"
+explanation: "-source と -target は構文と class file バージョンを制御しますが、それだけでは新しい JDK API の誤用を防げません。--release フラグは、指定した Java リリースの言語レベル、class file ターゲット、プラットフォーム API を選択します。これによりクロスコンパイルがより安全で分かりやすくなります。"
+whyModernWins:
+- icon: "🔒"
+  title: "API 安全"
+  desc: "選択したリリースに存在しない JDK API 呼び出しをコンパイラが拒否します。"
+- icon: "🧹"
+  title: "コマンドが簡単"
+  desc: "1 つのフラグで source、target、bootclasspath 的な設定を置き換えます。"
+- icon: "📦"
+  title: "信頼できる成果物"
+  desc: "生成される class は、サポートしたい Java バージョンと一致します。"
+support:
+  description: "JDK 9 以降で利用可能（2017年9月）"

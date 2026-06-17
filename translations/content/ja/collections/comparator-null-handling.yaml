@@ -1,0 +1,17 @@
+title: "Comparator による null 安全な順序付け"
+oldApproach: "独自の比較分岐"
+modernApproach: "Comparator.nullsLast()"
+summary: "手書きの null 分岐の代わりに Comparator.nullsFirst() または nullsLast() を使います。"
+explanation: "null になり得る値を手動でソートすると、各 comparator で同じ壊れやすい if/else 連鎖を繰り返しがちです。Comparator.nullsFirst() と nullsLast() は実際の順序付けを包み込み、null の扱いを明示します。結果は短く読みやすくなり、ソート中に誤って NullPointerException を投げる可能性も下がります。"
+whyModernWins:
+- icon: "🧹"
+  title: "分岐が少ない"
+  desc: "1 つのファクトリメソッドが、繰り返される null チェックを置き換えます。"
+- icon: "👁"
+  title: "方針が明確"
+  desc: "null 値を先頭に置くのか末尾に置くのかがコードからすぐ分かります。"
+- icon: "🔒"
+  title: "より安全なソート"
+  desc: "包まれた comparator は、両方の値が非 null の場合にのみ呼び出されます。"
+support:
+  description: "JDK 8 以降で利用可能（2014年3月）"

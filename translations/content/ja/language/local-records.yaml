@@ -1,0 +1,17 @@
+title: "一時データのためのローカル record"
+oldApproach: "その場限りのヘルパークラス"
+modernApproach: "ローカル record"
+summary: "短命なデータ構造を、必要な場所で直接表現するためにローカル record を使います。"
+explanation: "補助的な型が 1 つの計算のためだけに存在する場合、クラスレベルの DTO を宣言すると周囲のクラスに不要なノイズが増えます。ローカル record は、一時的な構造を、それを使う stream、クエリ、変換の近くに保ちます。名前付きの型、アクセサ、equals、hashCode、toString は得られますが、スコープは小さく保たれます。"
+whyModernWins:
+- icon: "📍"
+  title: "スコープが狭い"
+  desc: "補助型は、それを必要とするメソッド内でのみ見えます。"
+- icon: "🧩"
+  title: "データ形状が明確"
+  desc: "record 宣言が、一時フィールドを完全な DTO クラスなしで文書化します。"
+- icon: "✂️"
+  title: "ボイラープレート削減"
+  desc: "アクセサ、等価性、hashCode、toString は自動生成されます。"
+support:
+  description: "JDK 16 以降で広く利用可能（2021年3月）"

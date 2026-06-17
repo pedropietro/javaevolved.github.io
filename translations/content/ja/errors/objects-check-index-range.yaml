@@ -1,0 +1,17 @@
+title: "Objects によるインデックス範囲チェック"
+oldApproach: "手動の境界チェック"
+modernApproach: "Objects.checkFromIndexSize()"
+summary: "一貫した境界エラーには Objects.checkIndex()、checkFromToIndex()、checkFromIndexSize() を使います。"
+explanation: "手動の範囲チェックは、offset と length がオーバーフローし得る場合や、例外メッセージを一貫させたい場合に、微妙に間違えやすいものです。Objects の範囲チェックヘルパーは一般的なインデックス検証パターンを集約し、検証済みのインデックスを返すため、その値を次の操作へそのまま流せます。"
+whyModernWins:
+- icon: "🔒"
+  title: "境界バグを減らす"
+  desc: "JDK が典型的な off-by-one や不正範囲のケースを一貫して扱います。"
+- icon: "🧹"
+  title: "独自コードを削減"
+  desc: "繰り返しの if ブロックや場当たり的な例外メッセージを 1 つのヘルパーで置き換えます。"
+- icon: "➡️"
+  title: "合成しやすい"
+  desc: "検証済みインデックスが返るため、次の slice や lookup に渡せます。"
+support:
+  description: "JDK 9 以降で利用可能（2017年9月）"
