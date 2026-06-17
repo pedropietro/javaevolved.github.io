@@ -1,0 +1,17 @@
+title: "Records locales para datos temporales"
+oldApproach: "Clase auxiliar ad hoc"
+modernApproach: "Record local"
+summary: "Usa records locales para modelar estructuras de datos temporales justo donde se necesitan."
+explanation: "Cuando un tipo auxiliar existe solo para un cálculo, declarar un DTO a nivel de clase añade ruido innecesario a la clase que lo contiene. Un record local mantiene la estructura temporal cerca del stream, la consulta o la transformación que la utiliza. Sigues obteniendo un tipo con nombre, accesores, equals, hashCode y toString, pero el alcance permanece pequeño."
+whyModernWins:
+- icon: "📍"
+  title: "Alcance más estrecho"
+  desc: "El tipo auxiliar solo es visible dentro del método que lo necesita."
+- icon: "🧩"
+  title: "Forma de datos clara"
+  desc: "La declaración del record documenta los campos temporales sin una clase DTO completa."
+- icon: "✂️"
+  title: "Menos boilerplate"
+  desc: "Los accesores, la igualdad, hashCode y toString se generan automáticamente."
+support:
+  description: "Ampliamente disponible desde JDK 16 (marzo de 2021)"

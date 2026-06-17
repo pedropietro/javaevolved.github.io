@@ -1,0 +1,17 @@
+title: "Comprobaciones de rango de índice con Objects"
+oldApproach: "Validación manual de límites"
+modernApproach: "Objects.checkFromIndexSize()"
+summary: "Usa Objects.checkIndex(), checkFromToIndex() y checkFromIndexSize() para errores de límites consistentes."
+explanation: "Las comprobaciones manuales de rango son fáciles de escribir con errores sutiles, especialmente cuando offset y length pueden desbordar o cuando el mensaje de excepción debe ser consistente. Los helpers de rango de Objects centralizan patrones comunes de validación de índices y devuelven el índice validado para que el valor comprobado fluya directamente a la siguiente operación."
+whyModernWins:
+- icon: "🔒"
+  title: "Menos bugs de borde"
+  desc: "El JDK maneja de forma consistente casos comunes de off-by-one y rangos inválidos."
+- icon: "🧹"
+  title: "Menos código propio"
+  desc: "Reemplaza bloques if repetidos y mensajes de excepción ad hoc por un helper."
+- icon: "➡️"
+  title: "Componible"
+  desc: "El índice validado se devuelve, por lo que puede alimentar el siguiente slice o lookup."
+support:
+  description: "Disponible desde JDK 9 (septiembre de 2017)"
