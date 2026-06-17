@@ -1,0 +1,17 @@
+title: "구분자를 위한 String.join()"
+oldApproach: "StringBuilder 구분자 로직"
+modernApproach: "String.join()"
+summary: "수동 구분자 관리를 String.join()으로 대체해 더 읽기 쉬운 결합 문자열을 만드세요."
+explanation: "구분자가 있는 문자열을 직접 만들면 보통 첫 번째 요소인지 추적하고, 조건부로 구분자를 붙이고, 마지막에 builder를 문자열로 변환해야 합니다. String.join()은 의도를 직접 표현합니다: 이 값들을 이 구분자로 결합한다는 것입니다. 레이블, CSV 비슷한 출력, 로그, 짧은 표시 문자열에 적합합니다."
+whyModernWins:
+- icon: "✂️"
+  title: "코드 감소"
+  desc: "첫 요소 플래그, 조건부 쉼표, 수동 builder 생명주기가 필요 없습니다."
+- icon: "👁"
+  title: "의도가 먼저 보임"
+  desc: "구분자와 값이 하나의 표현식에 드러납니다."
+- icon: "🧩"
+  title: "Iterable 지원"
+  desc: "배열, 리스트, set 또는 CharSequence 값의 어떤 Iterable에도 사용할 수 있습니다."
+support:
+  description: "JDK 8부터 사용 가능 (2014년 3월)"

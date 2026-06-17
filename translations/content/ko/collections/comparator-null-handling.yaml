@@ -1,0 +1,17 @@
+title: "Comparator로 null 안전 정렬"
+oldApproach: "직접 작성한 비교 분기"
+modernApproach: "Comparator.nullsLast()"
+summary: "수동 null 분기 대신 Comparator.nullsFirst() 또는 nullsLast()를 사용하세요."
+explanation: "null일 수 있는 값을 직접 정렬하면 각 comparator마다 같은 취약한 if/else 체인을 반복하기 쉽습니다. Comparator.nullsFirst()와 nullsLast()는 실제 정렬을 감싸고 null 정책을 명확하게 드러냅니다. 결과는 더 짧고 읽기 쉬우며 정렬 중 실수로 NullPointerException이 발생할 가능성도 낮습니다."
+whyModernWins:
+- icon: "🧹"
+  title: "분기 감소"
+  desc: "하나의 팩터리 메서드가 반복되는 여러 null 검사를 대체합니다."
+- icon: "👁"
+  title: "명확한 정책"
+  desc: "코드만 봐도 null 값이 앞에 오는지 뒤에 오는지 바로 알 수 있습니다."
+- icon: "🔒"
+  title: "더 안전한 정렬"
+  desc: "감싸진 comparator는 두 값이 모두 null이 아닐 때만 호출됩니다."
+support:
+  description: "JDK 8부터 사용 가능 (2014년 3월)"

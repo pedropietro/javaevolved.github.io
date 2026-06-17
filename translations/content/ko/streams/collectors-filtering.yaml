@@ -1,0 +1,17 @@
+title: "다운스트림 Collectors.filtering()"
+oldApproach: "그룹화 전에 stream 필터링"
+modernApproach: "다운스트림 필터링"
+summary: "필터가 그룹화의 다운스트림 collector에 속한다면 Collectors.filtering()을 사용하세요."
+explanation: "그룹화 전에 필터링하면 분류기가 실행되기 전에 전체 요소가 제거되므로 일치하는 값이 없는 그룹은 사라집니다. Collectors.filtering()은 predicate를 다운스트림 collector 안으로 이동합니다. 그래서 grouping 단계는 모든 그룹을 만들 수 있고, 각 bucket은 predicate에 맞는 값만 받습니다."
+whyModernWins:
+- icon: "📦"
+  title: "그룹 보존"
+  desc: "필터링된 다운스트림 결과가 비어 있어도 그룹은 존재할 수 있습니다."
+- icon: "🎯"
+  title: "올바른 레벨의 필터"
+  desc: "predicate는 그룹화 이전이 아니라 각 그룹 bucket 안에서 적용됩니다."
+- icon: "🧩"
+  title: "깔끔한 조합"
+  desc: "groupingBy, partitioningBy, mapping, flatMapping 등 다른 다운스트림 collector와 잘 조합됩니다."
+support:
+  description: "JDK 9부터 사용 가능 (2017년 9월)"

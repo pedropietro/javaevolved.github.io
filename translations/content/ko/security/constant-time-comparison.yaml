@@ -1,0 +1,17 @@
+title: "상수 시간 바이트 비교"
+oldApproach: "비밀 값에 Arrays.equals()"
+modernApproach: "MessageDigest.isEqual()"
+summary: "MAC, 서명, 토큰 또는 비밀번호 해시를 비교할 때 MessageDigest.isEqual()을 사용하세요."
+explanation: "일반 equality helper는 차이를 찾는 즉시 반환할 수 있습니다. 보통 데이터에는 괜찮지만 비밀에서 파생된 바이트에는 바람직하지 않습니다. MessageDigest.isEqual()은 보안에 민감한 byte array 비교를 위해 설계되었고 명백한 조기 종료 패턴을 피합니다. MAC, digest, 서명, 검증 토큰 같은 값에 사용하세요."
+whyModernWins:
+- icon: "🔐"
+  title: "더 안전한 비밀 검사"
+  desc: "비밀이 아닌 데이터에 쓰이는 일반적인 조기 종료 비교 형태를 피합니다."
+- icon: "🧹"
+  title: "사용자 정의 crypto 없음"
+  desc: "직접 바이트 비교 루프를 작성하지 말고 JDK helper를 사용하세요."
+- icon: "🎯"
+  title: "명확한 의도"
+  desc: "리뷰어는 이 비교가 보안에 민감하다는 것을 즉시 알 수 있습니다."
+support:
+  description: "지원되는 모든 최신 JDK에서 사용 가능하며, 비밀에서 파생된 byte array에 권장됩니다."
