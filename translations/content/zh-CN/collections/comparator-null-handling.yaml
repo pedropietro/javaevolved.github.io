@@ -1,0 +1,17 @@
+title: "Comparator 的 null 安全排序"
+oldApproach: "自定义比较分支"
+modernApproach: "Comparator.nullsLast()"
+summary: "使用 Comparator.nullsFirst() 或 nullsLast()，不要手写 null 分支。"
+explanation: "手动排序可能为 null 的值时，经常会在每个 comparator 里重复同一段脆弱的 if/else 链。Comparator.nullsFirst() 和 nullsLast() 会包装真实的排序逻辑，并明确表达 null 的排序策略。结果更短、更易读，也更不容易在排序时意外抛出 NullPointerException。"
+whyModernWins:
+- icon: "🧹"
+  title: "更少分支"
+  desc: "一个工厂方法替代多处重复的 null 检查。"
+- icon: "👁"
+  title: "策略清晰"
+  desc: "代码会立即显示 null 值排在开头还是末尾。"
+- icon: "🔒"
+  title: "排序更安全"
+  desc: "被包装的 comparator 只会在两个值都非 null 时调用。"
+support:
+  description: "自 JDK 8 起可用（2014 年 3 月）"

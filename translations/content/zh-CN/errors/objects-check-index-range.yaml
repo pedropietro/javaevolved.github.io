@@ -1,0 +1,17 @@
+title: "Objects 索引范围检查"
+oldApproach: "手写边界验证"
+modernApproach: "Objects.checkFromIndexSize()"
+summary: "使用 Objects.checkIndex()、checkFromToIndex() 和 checkFromIndexSize() 获得一致的边界错误。"
+explanation: "手写范围检查很容易出现细微错误，尤其是 offset 和 length 可能溢出，或异常消息需要保持一致时。Objects 的范围检查辅助方法集中处理常见索引验证模式，并返回已验证的索引，让经过检查的值可以直接流入下一步操作。"
+whyModernWins:
+- icon: "🔒"
+  title: "更少边界 bug"
+  desc: "JDK 会一致处理常见的 off-by-one 和无效范围情况。"
+- icon: "🧹"
+  title: "更少自定义代码"
+  desc: "用一个 helper 替代重复的 if 块和临时异常消息。"
+- icon: "➡️"
+  title: "可组合"
+  desc: "返回已验证的索引，因此可以继续用于后续 slice 或 lookup。"
+support:
+  description: "自 JDK 9 起可用（2017 年 9 月）"

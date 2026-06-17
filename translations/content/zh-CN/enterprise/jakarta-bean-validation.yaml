@@ -1,0 +1,17 @@
+title: "Jakarta Bean Validation 注解"
+oldApproach: "命令式验证"
+modernApproach: "约束注解"
+summary: "用 Jakarta Bean Validation 约束替代重复的命令式验证。"
+explanation: "企业应用经常在 controller 和 service 中重复相同的 null、范围和格式检查。Jakarta Bean Validation 通过 @NotBlank、@Email、@Min 和 @Valid 等注解把这些规则移动到数据模型上。框架随后可以在业务逻辑运行前，一致地验证请求体、方法参数和实体。"
+whyModernWins:
+- icon: "📌"
+  title: "规则贴近数据"
+  desc: "约束位于它们所描述的字段或 record 组件上。"
+- icon: "🔁"
+  title: "验证可复用"
+  desc: "同一组注解可用于 REST endpoint、service、表单和持久化。"
+- icon: "🧹"
+  title: "更少样板代码"
+  desc: "从业务方法中移除重复的 if 块和手动错误构造。"
+support:
+  description: "在 Jakarta EE runtime 中广泛可用；常用于 Java 11+ 应用。"

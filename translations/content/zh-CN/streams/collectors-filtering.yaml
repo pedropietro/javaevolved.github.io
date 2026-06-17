@@ -1,0 +1,17 @@
+title: "下游 Collectors.filtering()"
+oldApproach: "分组前过滤 stream"
+modernApproach: "下游过滤"
+summary: "当过滤逻辑属于分组的下游 collector 时，使用 Collectors.filtering()。"
+explanation: "在分组前过滤会在分类器运行前移除整个元素，因此没有匹配值的分组会消失。Collectors.filtering() 会把谓词移到下游 collector 中。这样 grouping 步骤仍然可以创建每个组，而每个 bucket 只接收满足谓词的值。"
+whyModernWins:
+- icon: "📦"
+  title: "保留分组"
+  desc: "即使过滤后的下游结果为空，分组也可以存在。"
+- icon: "🎯"
+  title: "过滤层级正确"
+  desc: "谓词应用在每个已分组的 bucket 内，而不是在分组之前。"
+- icon: "🧩"
+  title: "组合清晰"
+  desc: "可与 groupingBy、partitioningBy、mapping、flatMapping 和其他下游 collector 组合。"
+support:
+  description: "自 JDK 9 起可用（2017 年 9 月）"

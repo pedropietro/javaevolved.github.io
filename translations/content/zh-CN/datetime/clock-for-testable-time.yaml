@@ -1,0 +1,17 @@
+title: "用于可测试时间的 Clock"
+oldApproach: "系统时间"
+modernApproach: "注入 Clock"
+summary: "在日期/时间逻辑中注入 java.time.Clock，而不是硬编码系统时钟。"
+explanation: "在领域代码中直接调用 now() 会让依赖时间的行为难以测试。Clock 让生产代码使用系统时钟，同时测试可以提供 Clock.fixed() 或 Clock.offset()。逻辑仍然使用 java.time API，但时间变成显式依赖，而不是隐藏的全局状态。"
+whyModernWins:
+- icon: "🧪"
+  title: "确定性测试"
+  desc: "测试可以用 Clock.fixed() 冻结时间，而不需要 sleep 或与真实时钟竞态。"
+- icon: "👁"
+  title: "依赖显式"
+  desc: "依赖时间的类会在构造函数中说明这一点。"
+- icon: "🌍"
+  title: "感知时区"
+  desc: "Clock 携带 ZoneId，让时区决策可见且可配置。"
+support:
+  description: "自 JDK 8 起可用（2014 年 3 月）"

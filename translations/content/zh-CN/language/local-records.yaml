@@ -1,0 +1,17 @@
+title: "用于临时数据的局部 record"
+oldApproach: "临时辅助类"
+modernApproach: "局部 record"
+summary: "使用局部 record，在临时数据结构真正需要的地方对其建模。"
+explanation: "当一个辅助类型只服务于一次计算时，把 DTO 声明在类级别会让外围类变得更嘈杂。局部 record 可以把临时数据结构放在使用它的 stream、查询或转换附近。你仍然得到一个具名类型、访问器、equals、hashCode 和 toString，但作用域保持很小。"
+whyModernWins:
+- icon: "📍"
+  title: "作用域更小"
+  desc: "辅助类型只在需要它的方法内部可见。"
+- icon: "🧩"
+  title: "数据形状清晰"
+  desc: "record 声明能记录临时字段，而不需要完整的 DTO 类。"
+- icon: "✂️"
+  title: "更少样板代码"
+  desc: "访问器、相等性、hashCode 和 toString 会自动生成。"
+support:
+  description: "自 JDK 16 起广泛可用（2021 年 3 月）"
