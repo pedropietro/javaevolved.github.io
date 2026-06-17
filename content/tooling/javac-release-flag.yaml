@@ -1,5 +1,5 @@
 ---
-id: 123
+id: 122
 slug: "javac-release-flag"
 title: "javac --release for cross-compilation"
 category: "tooling"
