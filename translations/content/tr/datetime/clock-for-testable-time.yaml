@@ -1,0 +1,17 @@
+title: "Test edilebilir zaman için Clock"
+oldApproach: "Sistem zamanı"
+modernApproach: "Enjekte edilen Clock"
+summary: "Tarih/saat mantığında sistem saatini sabitlemek yerine java.time.Clock enjekte edin."
+explanation: "Domain kodu içinde doğrudan now() çağırmak, zamana bağlı davranışları test etmeyi zorlaştırır. Clock, üretim kodunun sistem saatini kullanmasına, testlerin ise Clock.fixed() veya Clock.offset() sağlamasına izin verir. Mantık hâlâ java.time API'sini kullanır, ancak zaman gizli global durum yerine açık bir bağımlılık haline gelir."
+whyModernWins:
+- icon: "🧪"
+  title: "Deterministik testler"
+  desc: "Testler gerçek saatle yarışmak veya uyumak yerine Clock.fixed() ile zamanı dondurabilir."
+- icon: "👁"
+  title: "Açık bağımlılık"
+  desc: "Zamana bağlı sınıflar bunu constructor içinde belirtir."
+- icon: "🌍"
+  title: "Saat dilimi farkındalığı"
+  desc: "Clock bir ZoneId taşır; saat dilimi kararlarını görünür ve yapılandırılabilir yapar."
+support:
+  description: "JDK 8'den beri kullanılabilir (Mart 2014)"

@@ -1,0 +1,17 @@
+title: "Özyinelemeli gezinme için Files.walk()"
+oldApproach: "File API ile manuel özyineleme"
+modernApproach: "Files.walk()"
+summary: "Dizin ağaçlarını Path değerlerinden oluşan bir stream olarak gezmek için Files.walk() kullanın."
+explanation: "Eski File API'si sizi elle yazılmış özyineleme, null kontrolleri ve string tabanlı yol yönetimine iter. Files.walk(), bir dizin ağacını Stream<Path> olarak sunar; böylece gezinme filtrelenebilir, map edilebilir, sınırlandırılabilir ve try-with-resources ile kapatılabilir. NIO.2 API'sinin geri kalanıyla doğal biçimde birleşir."
+whyModernWins:
+- icon: "🌳"
+  title: "Stream ile gezinme"
+  desc: "Dizin gezmek, filtreler ve map'ler içeren normal bir stream pipeline'ına dönüşür."
+- icon: "🛡️"
+  title: "Kaynak güvenli"
+  desc: "try-with-resources, stream'in sahip olduğu dosya sistemi kaynaklarını kapatır."
+- icon: "📁"
+  title: "Path tabanlı"
+  desc: "Eski File ve string ağırlıklı yol mantığı yerine Path ve Files kullanır."
+support:
+  description: "JDK 8'den beri kullanılabilir (Mart 2014)"

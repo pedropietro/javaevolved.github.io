@@ -1,0 +1,17 @@
+title: "Jakarta Bean Validation anotasyonları"
+oldApproach: "Emredici doğrulama"
+modernApproach: "Constraint anotasyonları"
+summary: "Tekrarlanan emredici doğrulamayı Jakarta Bean Validation constraint'leriyle değiştirin."
+explanation: "Enterprise uygulamalar controller ve servislerde aynı null, aralık ve format kontrollerini sık sık tekrarlar. Jakarta Bean Validation bu kuralları @NotBlank, @Email, @Min ve @Valid gibi anotasyonlarla veri modeline taşır. Framework'ler request body'lerini, metot parametrelerini ve entity'leri iş mantığı çalışmadan önce tutarlı biçimde doğrulayabilir."
+whyModernWins:
+- icon: "📌"
+  title: "Kurallar verinin yanında"
+  desc: "Constraint'ler tanımladıkları alanların veya record bileşenlerinin üzerinde durur."
+- icon: "🔁"
+  title: "Yeniden kullanılabilir doğrulama"
+  desc: "Aynı anotasyonlar REST endpoint'lerinde, servislerde, formlarda ve persistence katmanında çalışır."
+- icon: "🧹"
+  title: "Daha az boilerplate"
+  desc: "İş metotlarından tekrarlanan if bloklarını ve manuel hata oluşturmayı kaldırın."
+support:
+  description: "Jakarta EE runtime'larında yaygın olarak bulunur; Java 11+ uygulamalarında sık kullanılır."
