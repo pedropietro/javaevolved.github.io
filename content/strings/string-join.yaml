@@ -1,0 +1,46 @@
+---
+id: 116
+slug: "string-join"
+title: "String.join() for delimiters"
+category: "strings"
+difficulty: "beginner"
+jdkVersion: "8"
+oldLabel: "Manual loop"
+modernLabel: "Java 8+"
+oldApproach: "StringBuilder delimiter logic"
+modernApproach: "String.join()"
+oldCode: |-
+  StringBuilder csv = new StringBuilder();
+  for (String name : names) {
+      if (csv.length() > 0) {
+          csv.append(", ");
+      }
+      csv.append(name);
+  }
+  String result = csv.toString();
+modernCode: |-
+  String result = String.join(", ", names);
+summary: "Replace manual delimiter bookkeeping with String.join() for readable joined strings."
+explanation: "Building a delimited string by hand usually means tracking whether you are on the first element, appending separators conditionally, and finally converting the builder to a string. String.join() expresses the intent directly: join these values with this delimiter. It is ideal for labels, CSV-like output, logs, and small display strings."
+whyModernWins:
+- icon: "✂️"
+  title: "Less code"
+  desc: "No first-element flag, conditional comma, or manual builder lifecycle."
+- icon: "👁"
+  title: "Intent first"
+  desc: "The delimiter and values are visible in a single expression."
+- icon: "🧩"
+  title: "Works with iterables"
+  desc: "Use it with arrays, lists, sets, or any Iterable of CharSequence values."
+support:
+  state: "available"
+  description: "Available since JDK 8 (March 2014)"
+prev: "collections/comparator-null-handling"
+next: "streams/collectors-filtering"
+related:
+- "strings/string-formatted"
+- "strings/multiline-json-sql"
+- "streams/stream-tolist"
+docs:
+- title: "String.join() Javadoc"
+  href: "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html#join(java.lang.CharSequence,java.lang.Iterable)"
