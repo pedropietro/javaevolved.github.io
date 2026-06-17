@@ -1,0 +1,44 @@
+---
+id: 122
+slug: "constant-time-comparison"
+title: "Constant-time byte comparison"
+category: "security"
+difficulty: "intermediate"
+jdkVersion: "6"
+oldLabel: "Naive equality"
+modernLabel: "JDK API"
+oldApproach: "Arrays.equals() for secrets"
+modernApproach: "MessageDigest.isEqual()"
+oldCode: |-
+  if (Arrays.equals(expectedMac, actualMac)) {
+      authenticate();
+  }
+modernCode: |-
+  if (MessageDigest.isEqual(
+          expectedMac, actualMac)) {
+      authenticate();
+  }
+summary: "Use MessageDigest.isEqual() when comparing MACs, signatures, tokens, or password hashes."
+explanation: "Regular equality helpers can return as soon as they find a difference, which is fine for ordinary data but undesirable for secret-derived bytes. MessageDigest.isEqual() is designed for security-sensitive byte-array comparisons and avoids the obvious early-exit pattern. Use it for values such as MACs, digests, signatures, and verification tokens."
+whyModernWins:
+- icon: "🔐"
+  title: "Safer secret checks"
+  desc: "Avoids the normal early-exit comparison shape used for non-secret data."
+- icon: "🧹"
+  title: "No custom crypto"
+  desc: "Use the JDK helper instead of writing your own byte comparison loop."
+- icon: "🎯"
+  title: "Clear intent"
+  desc: "Reviewers can immediately see the comparison is security-sensitive."
+support:
+  state: "available"
+  description: "Available in the JDK security API; recommended for secret-derived byte arrays."
+prev: "datetime/clock-for-testable-time"
+next: "tooling/javac-release-flag"
+related:
+- "security/strong-random"
+- "security/key-derivation-functions"
+- "security/tls-default"
+docs:
+- title: "MessageDigest.isEqual() Javadoc"
+  href: "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/MessageDigest.html#isEqual(byte%5B%5D,byte%5B%5D)"
