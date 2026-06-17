@@ -1,0 +1,17 @@
+title: "Indexbereichsprüfungen mit Objects"
+oldApproach: "Manuelle Bounds-Prüfung"
+modernApproach: "Objects.checkFromIndexSize()"
+summary: "Nutze Objects.checkIndex(), checkFromToIndex() und checkFromIndexSize() für konsistente Bounds-Fehler."
+explanation: "Manuelle Bereichsprüfungen sind leicht subtil falsch, besonders wenn offset und length überlaufen können oder die Exception-Nachricht konsistent bleiben soll. Die Bereichsprüfungshelfer in Objects zentralisieren typische Validierungsmuster für Indizes und geben den geprüften Index zurück, sodass der geprüfte Wert direkt in die nächste Operation fließt."
+whyModernWins:
+- icon: "🔒"
+  title: "Weniger Randfehler"
+  desc: "Das JDK behandelt typische Off-by-one- und ungültige Bereichsfälle konsistent."
+- icon: "🧹"
+  title: "Weniger eigener Code"
+  desc: "Ersetze wiederholte if-Blöcke und ad-hoc-Exception-Nachrichten durch einen Helfer."
+- icon: "➡️"
+  title: "Kombinierbar"
+  desc: "Der validierte Index wird zurückgegeben und kann den folgenden Slice oder Lookup speisen."
+support:
+  description: "Verfügbar seit JDK 9 (September 2017)"

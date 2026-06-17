@@ -1,0 +1,17 @@
+title: "Sabit zamanlı byte karşılaştırması"
+oldApproach: "Gizli değerler için Arrays.equals()"
+modernApproach: "MessageDigest.isEqual()"
+summary: "MAC, imza, token veya parola özeti karşılaştırırken MessageDigest.isEqual() kullanın."
+explanation: "Sıradan eşitlik yardımcıları bir fark bulur bulmaz dönebilir; bu normal veriler için uygundur ama gizli değerlerden türetilen byte'lar için istenmez. MessageDigest.isEqual(), güvenlik açısından hassas byte dizisi karşılaştırmaları için tasarlanmıştır ve belirgin erken çıkış kalıbından kaçınır. MAC, digest, imza ve doğrulama token'ları gibi değerlerde kullanın."
+whyModernWins:
+- icon: "🔐"
+  title: "Daha güvenli gizli kontroller"
+  desc: "Gizli olmayan verilerde kullanılan normal erken çıkışlı karşılaştırma biçiminden kaçınır."
+- icon: "🧹"
+  title: "Özel kripto yok"
+  desc: "Kendi byte karşılaştırma döngünüzü yazmak yerine JDK yardımcısını kullanın."
+- icon: "🎯"
+  title: "Niyet açık"
+  desc: "İnceleyenler karşılaştırmanın güvenlik hassasiyetini hemen görür."
+support:
+  description: "Desteklenen tüm modern JDK'larda kullanılabilir; gizli değerlerden türetilen byte dizileri için önerilir."

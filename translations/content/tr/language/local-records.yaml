@@ -1,0 +1,17 @@
+title: "Geçici veriler için yerel record'lar"
+oldApproach: "Geçici yardımcı sınıf"
+modernApproach: "Yerel record"
+summary: "Kısa ömürlü veri şekillerini tam ihtiyaç duyuldukları yerde modellemek için yerel record kullanın."
+explanation: "Bir yardımcı tip yalnızca tek bir hesaplama için varsa, sınıf seviyesinde DTO tanımlamak çevredeki sınıfı gereksiz yere kalabalıklaştırır. Yerel record, geçici yapıyı onu kullanan stream, sorgu veya dönüşümün yanında tutar. Yine adlandırılmış bir tip, erişiciler, equals, hashCode ve toString elde edersiniz; fakat kapsam küçük kalır."
+whyModernWins:
+- icon: "📍"
+  title: "Daha dar kapsam"
+  desc: "Yardımcı tip yalnızca ona ihtiyaç duyan metodun içinde görünür."
+- icon: "🧩"
+  title: "Net veri şekli"
+  desc: "Record bildirimi, geçici alanları tam bir DTO sınıfı olmadan belgeler."
+- icon: "✂️"
+  title: "Daha az boilerplate"
+  desc: "Erişiciler, eşitlik, hashCode ve toString otomatik üretilir."
+support:
+  description: "JDK 16'dan beri yaygın olarak kullanılabilir (Mart 2021)"

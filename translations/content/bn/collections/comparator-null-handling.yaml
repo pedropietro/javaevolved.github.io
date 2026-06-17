@@ -1,0 +1,17 @@
+title: "Comparator দিয়ে null-safe ordering"
+oldApproach: "কাস্টম compare branch"
+modernApproach: "Comparator.nullsLast()"
+summary: "হাতে লেখা null branch-এর বদলে Comparator.nullsFirst() বা nullsLast() ব্যবহার করুন।"
+explanation: "Nullable value হাতে sort করতে গেলে প্রায়ই প্রতিটি comparator-এ একই ভঙ্গুর if/else chain পুনরাবৃত্তি হয়। Comparator.nullsFirst() এবং nullsLast() আসল ordering-কে wrap করে এবং null policy স্পষ্ট করে। ফলাফল ছোট, পড়তে সহজ এবং sorting-এর সময় ভুল করে NullPointerException ছোড়ার সম্ভাবনা কম।"
+whyModernWins:
+- icon: "🧹"
+  title: "কম branching"
+  desc: "একটি factory method একাধিক পুনরাবৃত্ত null-check branch প্রতিস্থাপন করে।"
+- icon: "👁"
+  title: "স্পষ্ট policy"
+  desc: "কোড সঙ্গে সঙ্গে জানায় null value আগে যাবে নাকি শেষে যাবে।"
+- icon: "🔒"
+  title: "নিরাপদ sorting"
+  desc: "Wrapped comparator শুধু তখনই ডাকা হয় যখন দুই value-ই non-null।"
+support:
+  description: "JDK 8 থেকে উপলব্ধ (মার্চ 2014)"

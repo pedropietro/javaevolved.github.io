@@ -1,0 +1,17 @@
+title: "String.join() 处理分隔符"
+oldApproach: "StringBuilder 分隔符逻辑"
+modernApproach: "String.join()"
+summary: "用 String.join() 替代手动维护分隔符，生成更易读的拼接字符串。"
+explanation: "手动构造带分隔符的字符串通常需要跟踪是否为第一个元素、按条件追加分隔符，最后再把 builder 转成字符串。String.join() 直接表达意图：用这个分隔符连接这些值。它很适合标签、类似 CSV 的输出、日志和简短展示字符串。"
+whyModernWins:
+- icon: "✂️"
+  title: "更少代码"
+  desc: "不再需要第一个元素标记、条件逗号或手动管理 builder 生命周期。"
+- icon: "👁"
+  title: "意图优先"
+  desc: "分隔符和值在一个表达式中清楚可见。"
+- icon: "🧩"
+  title: "支持 Iterable"
+  desc: "可用于数组、列表、集合，或任何 CharSequence 值的 Iterable。"
+support:
+  description: "自 JDK 8 起可用（2014 年 3 月）"

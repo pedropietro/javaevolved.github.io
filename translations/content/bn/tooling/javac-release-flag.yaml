@@ -1,0 +1,17 @@
+title: "Cross-compilation-এর জন্য javac --release"
+oldApproach: "-source এবং -target"
+modernApproach: "--release"
+summary: "পুরোনো Java version-এর জন্য compile করার সময় শুধু -source এবং -target নয়, javac --release ব্যবহার করুন।"
+explanation: "-source এবং -target flag syntax ও class-file version নিয়ন্ত্রণ করে, কিন্তু এগুলো একা newer JDK API ভুল করে ব্যবহার করা আটকায় না। --release flag অনুরোধ করা Java release-এর জন্য language level, class-file target এবং platform API নির্বাচন করে। এতে cross-compilation নিরাপদ এবং বোঝা সহজ হয়।"
+whyModernWins:
+- icon: "🔒"
+  title: "API-safe"
+  desc: "Compiler নির্বাচিত release-এ অনুপস্থিত JDK API call reject করে।"
+- icon: "🧹"
+  title: "সহজ command"
+  desc: "একটি flag source, target এবং bootclasspath-style setup প্রতিস্থাপন করে।"
+- icon: "📦"
+  title: "নির্ভরযোগ্য artifact"
+  desc: "Generated class আপনি যে Java version support করতে চান তার সঙ্গে aligned থাকে।"
+support:
+  description: "JDK 9 থেকে উপলব্ধ (সেপ্টেম্বর 2017)"

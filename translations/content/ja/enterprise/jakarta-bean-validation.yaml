@@ -1,0 +1,17 @@
+title: "Jakarta Bean Validation アノテーション"
+oldApproach: "命令的なバリデーション"
+modernApproach: "制約アノテーション"
+summary: "繰り返しの命令的バリデーションを Jakarta Bean Validation の制約に置き換えます。"
+explanation: "エンタープライズアプリケーションでは、null、範囲、形式の同じチェックが controller や service で繰り返されがちです。Jakarta Bean Validation は、@NotBlank、@Email、@Min、@Valid などのアノテーションでそれらのルールをデータモデルへ移します。フレームワークは、ビジネスロジック実行前に request body、メソッドパラメータ、entity を一貫して検証できます。"
+whyModernWins:
+- icon: "📌"
+  title: "ルールがデータの近くにある"
+  desc: "制約は、それが説明するフィールドや record コンポーネント上に置かれます。"
+- icon: "🔁"
+  title: "再利用可能な検証"
+  desc: "同じアノテーションが REST endpoint、service、form、persistence で機能します。"
+- icon: "🧹"
+  title: "ボイラープレート削減"
+  desc: "ビジネスメソッドから繰り返しの if ブロックや手動のエラー構築を取り除きます。"
+support:
+  description: "Jakarta EE runtime で広く利用可能。Java 11+ アプリケーションで一般的に使われます。"

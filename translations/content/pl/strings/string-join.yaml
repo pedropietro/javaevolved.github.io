@@ -1,0 +1,17 @@
+title: "String.join() dla separatorów"
+oldApproach: "Logika separatorów w StringBuilder"
+modernApproach: "String.join()"
+summary: "Zastąp ręczne pilnowanie separatorów metodą String.join(), aby tworzyć czytelniejsze połączone napisy."
+explanation: "Ręczne budowanie napisu z separatorami zwykle oznacza śledzenie pierwszego elementu, warunkowe dodawanie separatorów i końcową konwersję buildera na napis. String.join() wyraża intencję bezpośrednio: połącz te wartości tym separatorem. To idealne rozwiązanie dla etykiet, wyjść podobnych do CSV, logów i krótkich tekstów prezentacyjnych."
+whyModernWins:
+- icon: "✂️"
+  title: "Mniej kodu"
+  desc: "Bez flagi pierwszego elementu, warunkowego przecinka i ręcznego cyklu życia buildera."
+- icon: "👁"
+  title: "Najpierw intencja"
+  desc: "Separator i wartości są widoczne w jednym wyrażeniu."
+- icon: "🧩"
+  title: "Działa z Iterable"
+  desc: "Używaj z tablicami, listami, setami lub dowolnym Iterable wartości CharSequence."
+support:
+  description: "Dostępne od JDK 8 (marzec 2014)"

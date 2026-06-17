@@ -1,0 +1,17 @@
+title: "임시 데이터를 위한 로컬 record"
+oldApproach: "임시 헬퍼 클래스"
+modernApproach: "로컬 record"
+summary: "짧게 쓰이는 데이터 형태를 필요한 위치에서 바로 모델링하려면 로컬 record를 사용하세요."
+explanation: "헬퍼 타입이 한 계산에만 필요하다면 클래스 수준 DTO를 선언하는 것은 주변 클래스를 불필요하게 복잡하게 만듭니다. 로컬 record는 임시 구조를 그것을 사용하는 stream, 쿼리, 변환 가까이에 둡니다. 이름 있는 타입, 접근자, equals, hashCode, toString은 그대로 얻으면서도 범위는 작게 유지됩니다."
+whyModernWins:
+- icon: "📍"
+  title: "더 좁은 범위"
+  desc: "헬퍼 타입은 그것을 필요로 하는 메서드 안에서만 보입니다."
+- icon: "🧩"
+  title: "명확한 데이터 형태"
+  desc: "record 선언은 완전한 DTO 클래스 없이 임시 필드를 문서화합니다."
+- icon: "✂️"
+  title: "보일러플레이트 감소"
+  desc: "접근자, 동등성, hashCode, toString이 자동으로 생성됩니다."
+support:
+  description: "JDK 16부터 널리 사용 가능 (2021년 3월)"

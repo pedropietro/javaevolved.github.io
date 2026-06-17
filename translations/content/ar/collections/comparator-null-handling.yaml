@@ -1,0 +1,17 @@
+title: "ترتيب آمن مع null باستخدام Comparator"
+oldApproach: "فروع مقارنة مخصصة"
+modernApproach: "Comparator.nullsLast()"
+summary: "استخدم Comparator.nullsFirst() أو nullsLast() بدلاً من كتابة فروع null يدوياً."
+explanation: "ترتيب القيم التي قد تكون null يدوياً غالباً ما يكرر سلسلة if/else الهشة نفسها في كل comparator. تقوم Comparator.nullsFirst() و nullsLast() بتغليف الترتيب الحقيقي وتجعلان سياسة null صريحة. النتيجة أقصر وأسهل قراءة وأقل عرضة لرمي NullPointerException أثناء الترتيب."
+whyModernWins:
+- icon: "🧹"
+  title: "فروع أقل"
+  desc: "طريقة factory واحدة تستبدل عدة فحوصات null متكررة."
+- icon: "👁"
+  title: "سياسة واضحة"
+  desc: "يوضح الكود فوراً ما إذا كانت قيم null تظهر أولاً أم أخيراً."
+- icon: "🔒"
+  title: "ترتيب أكثر أماناً"
+  desc: "لا يتم استدعاء comparator المغلف إلا عندما تكون القيمتان غير null."
+support:
+  description: "متاح منذ JDK 8 (مارس 2014)"

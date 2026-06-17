@@ -1,0 +1,17 @@
+title: "CompletableFuture 超时"
+oldApproach: "手动调度超时任务"
+modernApproach: "orTimeout()"
+summary: "使用 CompletableFuture.orTimeout() 或 completeOnTimeout()，而不是单独的 scheduler。"
+explanation: "在 Java 9 之前，为 CompletableFuture 设置超时意味着创建 ScheduledExecutorService，并接入一个手动完成 future 的任务。超时方法把这种行为直接放到 future 上。希望操作失败时使用 orTimeout()，希望返回备用值时使用 completeOnTimeout()。"
+whyModernWins:
+- icon: "⏱️"
+  title: "内置超时"
+  desc: "超时策略直接附加到异步计算上。"
+- icon: "🧹"
+  title: "没有 scheduler 样板"
+  desc: "不需要额外 executor、调度任务或手动异常完成代码块。"
+- icon: "🔀"
+  title: "失败或 fallback 清晰"
+  desc: "选择 orTimeout() 表示失败，选择 completeOnTimeout() 表示默认值。"
+support:
+  description: "自 JDK 9 起可用（2017 年 9 月）"

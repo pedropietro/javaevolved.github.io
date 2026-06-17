@@ -1,0 +1,17 @@
+title: "Collectors.filtering() downstream"
+oldApproach: "Filtrar antes de agrupar"
+modernApproach: "Filtrado downstream"
+summary: "Usa Collectors.filtering() cuando un filtro pertenece al collector downstream de un agrupamiento."
+explanation: "Filtrar antes de agrupar elimina elementos completos antes de que se ejecute el clasificador, por lo que desaparecen los grupos sin valores coincidentes. Collectors.filtering() mueve el predicado al collector downstream. Así el paso de grouping aún puede crear todos los grupos, mientras cada bucket recibe solo los valores que cumplen el predicado."
+whyModernWins:
+- icon: "📦"
+  title: "Conserva grupos"
+  desc: "Los grupos pueden existir incluso cuando su resultado downstream filtrado está vacío."
+- icon: "🎯"
+  title: "Filtro en el nivel correcto"
+  desc: "El predicado se aplica dentro de cada bucket agrupado, no antes de agrupar."
+- icon: "🧩"
+  title: "Compone limpiamente"
+  desc: "Funciona con groupingBy, partitioningBy, mapping, flatMapping y otros collectors downstream."
+support:
+  description: "Disponible desde JDK 9 (septiembre de 2017)"

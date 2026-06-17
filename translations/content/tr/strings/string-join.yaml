@@ -1,0 +1,17 @@
+title: "Ayraçlar için String.join()"
+oldApproach: "StringBuilder ile ayraç mantığı"
+modernApproach: "String.join()"
+summary: "Daha okunabilir birleştirilmiş string'ler için elle ayraç takibi yerine String.join() kullanın."
+explanation: "Ayraçlı bir string'i elle oluşturmak genellikle ilk elemanı takip etmeyi, ayraçları koşullu eklemeyi ve sonunda builder'ı string'e çevirmeyi gerektirir. String.join() niyeti doğrudan ifade eder: bu değerleri bu ayraçla birleştir. Etiketler, CSV benzeri çıktı, loglar ve küçük gösterim string'leri için idealdir."
+whyModernWins:
+- icon: "✂️"
+  title: "Daha az kod"
+  desc: "İlk-eleman bayrağı, koşullu virgül veya manuel builder yaşam döngüsü yok."
+- icon: "👁"
+  title: "Önce niyet"
+  desc: "Ayraç ve değerler tek bir ifadede görünür."
+- icon: "🧩"
+  title: "Iterable ile çalışır"
+  desc: "Diziler, listeler, setler veya CharSequence değerlerinden oluşan herhangi bir Iterable ile kullanın."
+support:
+  description: "JDK 8'den beri kullanılabilir (Mart 2014)"

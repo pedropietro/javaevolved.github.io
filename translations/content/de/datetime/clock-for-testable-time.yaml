@@ -1,0 +1,17 @@
+title: "Clock für testbare Zeit"
+oldApproach: "Systemzeit"
+modernApproach: "Injizierte Clock"
+summary: "Injiziere java.time.Clock, statt die Systemuhr in Datums- und Zeitlogik fest zu verdrahten."
+explanation: "now() direkt im Domänencode aufzurufen erschwert das Testen zeitabhängigen Verhaltens. Eine Clock erlaubt Produktionscode die Systemuhr zu verwenden, während Tests Clock.fixed() oder Clock.offset() bereitstellen. Die Logik nutzt weiterhin die java.time-API, aber Zeit wird zu einer expliziten Abhängigkeit statt verstecktem globalem Zustand."
+whyModernWins:
+- icon: "🧪"
+  title: "Deterministische Tests"
+  desc: "Tests können Zeit mit Clock.fixed() einfrieren, statt zu schlafen oder gegen die echte Uhr zu laufen."
+- icon: "👁"
+  title: "Explizite Abhängigkeit"
+  desc: "Klassen, die von Zeit abhängen, zeigen das in ihrem Konstruktor."
+- icon: "🌍"
+  title: "Zeitzonenbewusst"
+  desc: "Clock trägt eine ZoneId, wodurch Zeitzonenentscheidungen sichtbar und konfigurierbar werden."
+support:
+  description: "Verfügbar seit JDK 8 (März 2014)"

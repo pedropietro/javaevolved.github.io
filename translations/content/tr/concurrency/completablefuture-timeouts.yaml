@@ -1,0 +1,17 @@
+title: "CompletableFuture zaman aşımları"
+oldApproach: "Elle zamanlanmış görev"
+modernApproach: "orTimeout()"
+summary: "Ayrı bir scheduler yerine CompletableFuture.orTimeout() veya completeOnTimeout() kullanın."
+explanation: "Java 9'dan önce bir CompletableFuture'a zaman aşımı uygulamak, ScheduledExecutorService oluşturmayı ve future'ı elle tamamlayan bir görev bağlamayı gerektirirdi. Timeout metodları bu davranışı future'ın üzerine koyar. İşlem başarısız olmalıysa orTimeout(), yedek değer istiyorsanız completeOnTimeout() kullanın."
+whyModernWins:
+- icon: "⏱️"
+  title: "Yerleşik timeout"
+  desc: "Timeout politikası doğrudan asenkron hesaba bağlanır."
+- icon: "🧹"
+  title: "Scheduler boilerplate yok"
+  desc: "Ek executor, zamanlanmış görev veya elle exceptional completion bloğu yok."
+- icon: "🔀"
+  title: "Net hata veya fallback"
+  desc: "Hata için orTimeout(), varsayılan değer için completeOnTimeout() seçin."
+support:
+  description: "JDK 9'dan beri kullanılabilir (Eylül 2017)"

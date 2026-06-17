@@ -1,0 +1,17 @@
+title: "Objects ile indeks aralığı kontrolleri"
+oldApproach: "Manuel sınır doğrulama"
+modernApproach: "Objects.checkFromIndexSize()"
+summary: "Tutarlı sınır hataları için Objects.checkIndex(), checkFromToIndex() ve checkFromIndexSize() kullanın."
+explanation: "Manuel aralık kontrollerini incelikli biçimde yanlış yazmak kolaydır; özellikle offset ve length taşabiliyorsa veya exception mesajının tutarlı kalması gerekiyorsa. Objects aralık kontrol yardımcıları, yaygın indeks doğrulama kalıplarını merkezileştirir ve doğrulanmış indeksi döndürür; böylece kontrol edilmiş değer doğrudan bir sonraki işleme akar."
+whyModernWins:
+- icon: "🔒"
+  title: "Daha az sınır hatası"
+  desc: "JDK, yaygın off-by-one ve geçersiz aralık durumlarını tutarlı biçimde ele alır."
+- icon: "🧹"
+  title: "Daha az özel kod"
+  desc: "Tekrarlanan if bloklarını ve ad hoc exception mesajlarını tek bir helper ile değiştirin."
+- icon: "➡️"
+  title: "Birleştirilebilir"
+  desc: "Doğrulanan indeks döner, bu yüzden sonraki slice veya lookup işlemine girdi olabilir."
+support:
+  description: "JDK 9'dan beri kullanılabilir (Eylül 2017)"

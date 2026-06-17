@@ -1,0 +1,17 @@
+title: "Clock para tempo testável"
+oldApproach: "Tempo do sistema"
+modernApproach: "Clock injetado"
+summary: "Injete java.time.Clock em vez de hard-codar o relógio do sistema na lógica de data e hora."
+explanation: "Chamar now() diretamente dentro do código de domínio dificulta testar comportamentos dependentes do tempo. Um Clock permite que o código de produção use o relógio do sistema enquanto testes fornecem Clock.fixed() ou Clock.offset(). A lógica continua usando a API java.time, mas o tempo vira uma dependência explícita em vez de estado global oculto."
+whyModernWins:
+- icon: "🧪"
+  title: "Testes determinísticos"
+  desc: "Testes podem congelar o tempo com Clock.fixed() em vez de dormir ou disputar com o relógio real."
+- icon: "👁"
+  title: "Dependência explícita"
+  desc: "Classes que dependem de tempo deixam isso claro no construtor."
+- icon: "🌍"
+  title: "Consciente de fuso"
+  desc: "Clock carrega um ZoneId, tornando decisões de fuso horário visíveis e configuráveis."
+support:
+  description: "Disponível desde o JDK 8 (março de 2014)"

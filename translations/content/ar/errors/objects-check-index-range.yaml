@@ -1,0 +1,17 @@
+title: "فحوصات نطاق الفهرس باستخدام Objects"
+oldApproach: "تحقق يدوي من الحدود"
+modernApproach: "Objects.checkFromIndexSize()"
+summary: "استخدم Objects.checkIndex() و checkFromToIndex() و checkFromIndexSize() للحصول على أخطاء حدود متسقة."
+explanation: "من السهل أن تكون فحوصات النطاق اليدوية خاطئة بشكل دقيق، خصوصاً عندما يمكن أن يحدث overflow لـ offset و length أو عندما يجب أن تبقى رسالة الاستثناء متسقة. تجمع أدوات فحص النطاق في Objects أنماط التحقق الشائعة للفهرس وتعيد الفهرس بعد التحقق، بحيث ينتقل مباشرة إلى العملية التالية."
+whyModernWins:
+- icon: "🔒"
+  title: "أخطاء حدود أقل"
+  desc: "يتعامل JDK بشكل متسق مع حالات off-by-one والنطاقات غير الصالحة الشائعة."
+- icon: "🧹"
+  title: "كود مخصص أقل"
+  desc: "استبدل كتل if المتكررة ورسائل الاستثناء المؤقتة بمساعد واحد."
+- icon: "➡️"
+  title: "قابل للتركيب"
+  desc: "يُعاد الفهرس بعد التحقق، لذلك يمكن استخدامه في عملية slice أو lookup التالية."
+support:
+  description: "متاح منذ JDK 9 (سبتمبر 2017)"

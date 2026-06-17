@@ -1,0 +1,17 @@
+title: "使用 javac --release 进行交叉编译"
+oldApproach: "-source 和 -target"
+modernApproach: "--release"
+summary: "为旧 Java 版本编译时，使用 javac --release，而不只是 -source 和 -target。"
+explanation: "-source 和 -target 标志控制语法和 class file 版本，但它们本身不能阻止你意外使用较新的 JDK API。--release 标志会为目标 Java 版本选择语言级别、class file 目标和平台 API。这让交叉编译更安全，也更容易理解。"
+whyModernWins:
+- icon: "🔒"
+  title: "API 安全"
+  desc: "编译器会拒绝调用所选 release 中不可用的 JDK API。"
+- icon: "🧹"
+  title: "命令更简单"
+  desc: "一个标志替代 source、target 和类似 bootclasspath 的设置。"
+- icon: "📦"
+  title: "产物可靠"
+  desc: "生成的 class 与你想支持的 Java 版本保持一致。"
+support:
+  description: "自 JDK 9 起可用（2017 年 9 月）"

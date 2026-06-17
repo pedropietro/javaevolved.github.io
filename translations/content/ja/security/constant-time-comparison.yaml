@@ -1,0 +1,17 @@
+title: "定数時間のバイト比較"
+oldApproach: "秘密値に Arrays.equals()"
+modernApproach: "MessageDigest.isEqual()"
+summary: "MAC、署名、トークン、パスワードハッシュを比較するときは MessageDigest.isEqual() を使います。"
+explanation: "通常の等価性ヘルパーは差分を見つけるとすぐ返ることがあり、一般データでは問題ありませんが、秘密由来のバイトには望ましくありません。MessageDigest.isEqual() はセキュリティ上重要な byte array 比較向けに設計されており、明らかな早期終了パターンを避けます。MAC、digest、署名、検証トークンなどに使います。"
+whyModernWins:
+- icon: "🔐"
+  title: "秘密チェックを安全に"
+  desc: "非秘密データで使われる通常の早期終了型比較を避けます。"
+- icon: "🧹"
+  title: "独自 crypto 不要"
+  desc: "自前のバイト比較ループを書かずに JDK ヘルパーを使います。"
+- icon: "🎯"
+  title: "意図が明確"
+  desc: "レビュー担当者は、この比較がセキュリティ上重要であることをすぐ理解できます。"
+support:
+  description: "サポートされるすべてのモダン JDK で利用可能。秘密由来の byte array に推奨されます。"

@@ -1,0 +1,17 @@
+title: "区切り文字には String.join()"
+oldApproach: "StringBuilder の区切り文字ロジック"
+modernApproach: "String.join()"
+summary: "手動の区切り文字管理を String.join() に置き換え、結合文字列を読みやすくします。"
+explanation: "区切り文字付きの文字列を手作業で作る場合、最初の要素かどうかを追跡し、条件付きで区切り文字を追加し、最後に builder を文字列へ変換する必要があります。String.join() は意図を直接表します: これらの値をこの区切り文字で結合する、ということです。ラベル、CSV 風の出力、ログ、小さな表示用文字列に最適です。"
+whyModernWins:
+- icon: "✂️"
+  title: "コードが少ない"
+  desc: "最初の要素フラグ、条件付きカンマ、手動の builder 管理が不要です。"
+- icon: "👁"
+  title: "意図が先に見える"
+  desc: "区切り文字と値が 1 つの式に現れます。"
+- icon: "🧩"
+  title: "Iterable に対応"
+  desc: "配列、リスト、セット、または CharSequence 値の任意の Iterable で使えます。"
+support:
+  description: "JDK 8 以降で利用可能（2014年3月）"

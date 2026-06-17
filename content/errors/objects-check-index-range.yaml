@@ -1,0 +1,52 @@
+---
+id: 120
+slug: "objects-check-index-range"
+title: "Objects index range checks"
+category: "errors"
+difficulty: "beginner"
+jdkVersion: "9"
+oldLabel: "Manual bounds check"
+modernLabel: "Java 9+"
+oldApproach: "Hand-written index validation"
+modernApproach: "Objects.checkFromIndexSize()"
+oldCode: |-
+  if (offset < 0 || length < 0 ||
+      offset + length > bytes.length) {
+      throw new IndexOutOfBoundsException(
+          "Invalid slice");
+  }
+
+  byte[] part = Arrays.copyOfRange(
+      bytes, offset, offset + length);
+modernCode: |-
+  int from = Objects.checkFromIndexSize(
+      offset, length, bytes.length);
+
+  byte[] part = Arrays.copyOfRange(
+      bytes, from, from + length);
+summary: "Use Objects.checkIndex(), checkFromToIndex(), and checkFromIndexSize() for consistent bounds errors."
+explanation: "Manual range checks are easy to get subtly wrong, especially when offset and length can overflow or when the exception message must stay consistent. The Objects range-checking helpers centralize common index validation patterns and return the validated index so the checked value flows directly into the next operation."
+whyModernWins:
+- icon: "🔒"
+  title: "Fewer edge bugs"
+  desc: "The JDK handles common off-by-one and invalid range cases consistently."
+- icon: "🧹"
+  title: "Less custom code"
+  desc: "Replace repeated if blocks and ad-hoc exception messages with one helper."
+- icon: "➡️"
+  title: "Composable"
+  desc: "The validated index is returned, so it can feed the following slice or lookup."
+support:
+  state: "available"
+  description: "Available since JDK 9 (September 2017)"
+prev: "io/files-walk"
+next: "datetime/clock-for-testable-time"
+related:
+- "errors/helpful-npe"
+- "errors/require-nonnull-else"
+- "io/files-mismatch"
+docs:
+- title: "Objects.checkFromIndexSize() Javadoc"
+  href: "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Objects.html#checkFromIndexSize(int,int,int)"
+- title: "Objects.checkIndex() Javadoc"
+  href: "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Objects.html#checkIndex(int,int)"

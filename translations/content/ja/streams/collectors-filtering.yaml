@@ -1,0 +1,17 @@
+title: "下流の Collectors.filtering()"
+oldApproach: "グループ化前にフィルタ"
+modernApproach: "下流フィルタリング"
+summary: "フィルタがグループ化の下流 collector に属する場合は Collectors.filtering() を使います。"
+explanation: "グループ化の前にフィルタすると、分類器が実行される前に要素全体が取り除かれるため、一致する値を持たないグループは消えます。Collectors.filtering() は predicate を下流 collector に移します。これにより grouping のステップは全てのグループを作成しつつ、各 bucket には predicate に一致する値だけが入ります。"
+whyModernWins:
+- icon: "📦"
+  title: "グループを保持"
+  desc: "フィルタ後の下流結果が空でも、グループを存在させられます。"
+- icon: "🎯"
+  title: "正しいレベルでフィルタ"
+  desc: "predicate はグループ化前ではなく、各グループ bucket の中で適用されます。"
+- icon: "🧩"
+  title: "きれいに合成"
+  desc: "groupingBy、partitioningBy、mapping、flatMapping などの下流 collector と組み合わせられます。"
+support:
+  description: "JDK 9 以降で利用可能（2017年9月）"

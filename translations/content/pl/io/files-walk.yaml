@@ -1,0 +1,17 @@
+title: "Files.walk() do rekurencyjnego przechodzenia"
+oldApproach: "Ręczna rekurencja z File"
+modernApproach: "Files.walk()"
+summary: "Używaj Files.walk(), aby przechodzić drzewa katalogów jako stream wartości Path."
+explanation: "Stare API File skłania do ręcznie pisanej rekurencji, sprawdzeń null i obsługi ścieżek opartej na stringach. Files.walk() udostępnia drzewo katalogów jako Stream<Path>, więc przechodzenie można filtrować, mapować, ograniczać i zamykać przez try-with-resources. Naturalnie komponuje się z resztą API NIO.2."
+whyModernWins:
+- icon: "🌳"
+  title: "Przechodzenie jako stream"
+  desc: "Przechodzenie katalogów staje się zwykłym pipeline stream z filtrami i mapami."
+- icon: "🛡️"
+  title: "Bezpieczne zasoby"
+  desc: "try-with-resources zamyka zasoby systemu plików posiadane przez stream."
+- icon: "📁"
+  title: "Oparte na Path"
+  desc: "Używa Path i Files zamiast legacy File oraz logiki ścieżek pełnej stringów."
+support:
+  description: "Dostępne od JDK 8 (marzec 2014)"

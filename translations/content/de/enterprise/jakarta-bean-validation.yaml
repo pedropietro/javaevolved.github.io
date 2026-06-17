@@ -1,0 +1,17 @@
+title: "Jakarta Bean Validation-Annotationen"
+oldApproach: "Imperative Validierung"
+modernApproach: "Constraint-Annotationen"
+summary: "Ersetze wiederholte imperative Validierung durch Constraints aus Jakarta Bean Validation."
+explanation: "Enterprise-Anwendungen wiederholen häufig dieselben null-, Bereichs- und Formatprüfungen in Controllern und Services. Jakarta Bean Validation verschiebt diese Regeln mit Annotationen wie @NotBlank, @Email, @Min und @Valid auf das Datenmodell. Frameworks können Request-Bodies, Methodenparameter und Entitäten dann konsistent validieren, bevor Geschäftslogik ausgeführt wird."
+whyModernWins:
+- icon: "📌"
+  title: "Regeln bei den Daten"
+  desc: "Constraints stehen auf den Feldern oder Record-Komponenten, die sie beschreiben."
+- icon: "🔁"
+  title: "Wiederverwendbare Validierung"
+  desc: "Dieselben Annotationen funktionieren in REST-Endpunkten, Services, Formularen und Persistenz."
+- icon: "🧹"
+  title: "Weniger Boilerplate"
+  desc: "Entferne wiederholte if-Blöcke und manuelle Fehlererzeugung aus Business-Methoden."
+support:
+  description: "In Jakarta-EE-Runtimes breit verfügbar; häufig in Java-11+-Anwendungen genutzt."

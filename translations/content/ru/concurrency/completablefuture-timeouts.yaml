@@ -1,0 +1,17 @@
+title: "Тайм-ауты в CompletableFuture"
+oldApproach: "Ручная scheduled-задача"
+modernApproach: "orTimeout()"
+summary: "Используйте CompletableFuture.orTimeout() или completeOnTimeout() вместо отдельного scheduler."
+explanation: "До Java 9 тайм-аут для CompletableFuture требовал создать ScheduledExecutorService и привязать задачу, которая вручную завершала future. Методы timeout помещают это поведение на сам future. Используйте orTimeout(), если операция должна завершиться ошибкой, или completeOnTimeout(), если нужен fallback-результат."
+whyModernWins:
+- icon: "⏱️"
+  title: "Встроенный тайм-аут"
+  desc: "Политика тайм-аута привязана прямо к асинхронному вычислению."
+- icon: "🧹"
+  title: "Без scheduler-boilerplate"
+  desc: "Не нужен дополнительный executor, scheduled-задача или ручной блок exceptional completion."
+- icon: "🔀"
+  title: "Ясная ошибка или fallback"
+  desc: "Выбирайте orTimeout() для ошибки или completeOnTimeout() для значения по умолчанию."
+support:
+  description: "Доступно с JDK 9 (сентябрь 2017)"

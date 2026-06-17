@@ -1,0 +1,17 @@
+title: "Testable time-এর জন্য Clock"
+oldApproach: "System time"
+modernApproach: "Injected Clock"
+summary: "Date/time logic-এ system clock hard-code না করে java.time.Clock inject করুন।"
+explanation: "Domain code-এর ভিতরে সরাসরি now() ডাকলে time-dependent behavior test করা কঠিন হয়। Clock production code-কে system clock ব্যবহার করতে দেয়, আর test-গুলো Clock.fixed() বা Clock.offset() দিতে পারে। Logic এখনও java.time API ব্যবহার করে, কিন্তু time hidden global state নয়, explicit dependency হয়ে যায়।"
+whyModernWins:
+- icon: "🧪"
+  title: "Deterministic test"
+  desc: "Test ঘুমানো বা real clock-এর সঙ্গে race করার বদলে Clock.fixed() দিয়ে time freeze করতে পারে।"
+- icon: "👁"
+  title: "Explicit dependency"
+  desc: "যে class time-এর ওপর নির্ভর করে, সেটি constructor-এ তা স্পষ্ট করে।"
+- icon: "🌍"
+  title: "Zone-aware"
+  desc: "Clock একটি ZoneId বহন করে, ফলে time-zone decision দৃশ্যমান এবং configurable হয়।"
+support:
+  description: "JDK 8 থেকে উপলব্ধ (মার্চ 2014)"

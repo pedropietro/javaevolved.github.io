@@ -1,0 +1,17 @@
+title: "재귀 탐색을 위한 Files.walk()"
+oldApproach: "File API로 수동 재귀"
+modernApproach: "Files.walk()"
+summary: "Files.walk()를 사용해 디렉터리 트리를 Path 값의 stream으로 탐색하세요."
+explanation: "오래된 File API는 손으로 작성한 재귀, null 검사, 문자열 기반 경로 처리로 이어지기 쉽습니다. Files.walk()는 디렉터리 트리를 Stream<Path>로 노출하므로 탐색을 필터링, 매핑, 제한할 수 있고 try-with-resources로 닫을 수 있습니다. NIO.2 API의 나머지 부분과 자연스럽게 조합됩니다."
+whyModernWins:
+- icon: "🌳"
+  title: "stream 탐색"
+  desc: "디렉터리 탐색이 필터와 map을 가진 일반 stream pipeline이 됩니다."
+- icon: "🛡️"
+  title: "리소스 안전"
+  desc: "try-with-resources가 stream이 소유한 파일 시스템 리소스를 닫습니다."
+- icon: "📁"
+  title: "Path 기반"
+  desc: "레거시 File과 문자열 중심 경로 로직 대신 Path와 Files를 사용합니다."
+support:
+  description: "JDK 8부터 사용 가능 (2014년 3월)"

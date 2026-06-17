@@ -1,0 +1,17 @@
+title: "Record locali per dati temporanei"
+oldApproach: "Classe helper ad hoc"
+modernApproach: "Record locale"
+summary: "Usa record locali per modellare strutture di dati temporanee esattamente dove servono."
+explanation: "Quando un tipo helper esiste solo per un calcolo, dichiarare un DTO a livello di classe aggiunge rumore inutile alla classe circostante. Un record locale mantiene la struttura temporanea vicino allo stream, alla query o alla trasformazione che la usa. Ottieni comunque un tipo con nome, accessor, equals, hashCode e toString, ma lo scope rimane piccolo."
+whyModernWins:
+- icon: "📍"
+  title: "Scope più stretto"
+  desc: "Il tipo helper è visibile solo dentro il metodo che ne ha bisogno."
+- icon: "🧩"
+  title: "Forma dati chiara"
+  desc: "La dichiarazione del record documenta i campi temporanei senza una classe DTO completa."
+- icon: "✂️"
+  title: "Meno boilerplate"
+  desc: "Accessor, uguaglianza, hashCode e toString sono generati automaticamente."
+support:
+  description: "Ampiamente disponibile dal JDK 16 (marzo 2021)"

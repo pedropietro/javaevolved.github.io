@@ -1,0 +1,17 @@
+title: "javac --release для кросс-компиляции"
+oldApproach: "-source и -target"
+modernApproach: "--release"
+summary: "Используйте javac --release вместо одних -source и -target при компиляции под старые версии Java."
+explanation: "Флаги -source и -target управляют синтаксисом и версией class file, но сами по себе не предотвращают случайное использование более новых API JDK. Флаг --release выбирает уровень языка, целевую версию class file и platform API для указанного релиза Java. Это делает кросс-компиляцию безопаснее и понятнее."
+whyModernWins:
+- icon: "🔒"
+  title: "Безопасно по API"
+  desc: "Компилятор отклоняет вызовы API JDK, недоступных в выбранном release."
+- icon: "🧹"
+  title: "Команда проще"
+  desc: "Один флаг заменяет source, target и настройку в стиле bootclasspath."
+- icon: "📦"
+  title: "Надежные артефакты"
+  desc: "Сгенерированные классы соответствуют версии Java, которую вы хотите поддерживать."
+support:
+  description: "Доступно с JDK 9 (сентябрь 2017)"

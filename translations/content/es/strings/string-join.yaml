@@ -1,0 +1,17 @@
+title: "String.join() para delimitadores"
+oldApproach: "Lógica de delimitadores con StringBuilder"
+modernApproach: "String.join()"
+summary: "Reemplaza el control manual de delimitadores por String.join() para cadenas unidas más legibles."
+explanation: "Construir una cadena delimitada a mano normalmente implica controlar si estás en el primer elemento, añadir separadores de forma condicional y convertir el builder al final. String.join() expresa la intención directamente: unir estos valores con este delimitador. Es ideal para etiquetas, salidas tipo CSV, logs y pequeñas cadenas de presentación."
+whyModernWins:
+- icon: "✂️"
+  title: "Menos código"
+  desc: "Sin bandera de primer elemento, coma condicional ni ciclo manual del builder."
+- icon: "👁"
+  title: "La intención primero"
+  desc: "El delimitador y los valores aparecen en una sola expresión."
+- icon: "🧩"
+  title: "Funciona con iterables"
+  desc: "Úsalo con arrays, listas, sets o cualquier Iterable de valores CharSequence."
+support:
+  description: "Disponible desde JDK 8 (marzo de 2014)"

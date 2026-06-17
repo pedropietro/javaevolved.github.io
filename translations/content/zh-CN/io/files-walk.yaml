@@ -1,0 +1,17 @@
+title: "Files.walk() 递归遍历"
+oldApproach: "File API 手动递归"
+modernApproach: "Files.walk()"
+summary: "使用 Files.walk() 将目录树作为 Path 值的 stream 来遍历。"
+explanation: "旧的 File API 容易把你推向手写递归、null 检查和基于字符串的路径处理。Files.walk() 将目录树暴露为 Stream<Path>，因此遍历可以被过滤、映射、限制，并通过 try-with-resources 关闭。它能自然地与 NIO.2 API 的其他部分组合。"
+whyModernWins:
+- icon: "🌳"
+  title: "Stream 遍历"
+  desc: "目录遍历变成带有过滤和映射的普通 stream pipeline。"
+- icon: "🛡️"
+  title: "资源安全"
+  desc: "try-with-resources 会关闭 stream 持有的文件系统资源。"
+- icon: "📁"
+  title: "基于 Path"
+  desc: "使用 Path 和 Files，而不是旧的 File 和大量字符串路径逻辑。"
+support:
+  description: "自 JDK 8 起可用（2014 年 3 月）"

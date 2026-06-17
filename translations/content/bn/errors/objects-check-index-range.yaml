@@ -1,0 +1,17 @@
+title: "Objects দিয়ে index range check"
+oldApproach: "Manual bounds check"
+modernApproach: "Objects.checkFromIndexSize()"
+summary: "Consistent bounds error-এর জন্য Objects.checkIndex(), checkFromToIndex() এবং checkFromIndexSize() ব্যবহার করুন।"
+explanation: "Manual range check সূক্ষ্মভাবে ভুল হওয়া সহজ, বিশেষ করে যখন offset এবং length overflow করতে পারে বা exception message consistent রাখতে হয়। Objects-এর range-checking helper সাধারণ index validation pattern কেন্দ্রীভূত করে এবং validated index ফেরত দেয়, যাতে checked value সরাসরি পরবর্তী operation-এ যেতে পারে।"
+whyModernWins:
+- icon: "🔒"
+  title: "কম edge bug"
+  desc: "JDK সাধারণ off-by-one এবং invalid range case consistent ভাবে handle করে।"
+- icon: "🧹"
+  title: "কম custom code"
+  desc: "পুনরাবৃত্ত if block এবং ad-hoc exception message-এর বদলে একটি helper ব্যবহার করুন।"
+- icon: "➡️"
+  title: "Composable"
+  desc: "Validated index ফেরত আসে, তাই এটি পরবর্তী slice বা lookup-এ ব্যবহার করা যায়।"
+support:
+  description: "JDK 9 থেকে উপলব্ধ (সেপ্টেম্বর 2017)"

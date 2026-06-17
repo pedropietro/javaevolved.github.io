@@ -1,0 +1,17 @@
+title: "Çapraz derleme için javac --release"
+oldApproach: "-source ve -target"
+modernApproach: "--release"
+summary: "Eski Java sürümleri için derlerken yalnızca -source ve -target yerine javac --release kullanın."
+explanation: "-source ve -target bayrakları sözdizimini ve class-file sürümünü kontrol eder, ancak tek başlarına daha yeni JDK API'lerinin yanlışlıkla kullanılmasını engellemez. --release bayrağı istenen Java sürümü için dil seviyesini, class-file hedefini ve platform API'sini seçer. Bu, çapraz derlemeyi daha güvenli ve anlaşılır hale getirir."
+whyModernWins:
+- icon: "🔒"
+  title: "API güvenli"
+  desc: "Derleyici, seçilen release'te bulunmayan JDK API çağrılarını reddeder."
+- icon: "🧹"
+  title: "Daha basit komut"
+  desc: "Tek bayrak source, target ve bootclasspath benzeri kurulumu değiştirir."
+- icon: "📦"
+  title: "Güvenilir artefaktlar"
+  desc: "Üretilen class'lar desteklemek istediğiniz Java sürümüyle hizalıdır."
+support:
+  description: "JDK 9'dan beri kullanılabilir (Eylül 2017)"

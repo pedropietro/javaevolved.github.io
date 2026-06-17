@@ -1,0 +1,17 @@
+title: "Аннотации Jakarta Bean Validation"
+oldApproach: "Императивная валидация"
+modernApproach: "Аннотации constraints"
+summary: "Заменяйте повторяющуюся императивную валидацию constraints из Jakarta Bean Validation."
+explanation: "Enterprise-приложения часто повторяют одни и те же проверки null, диапазона и формата в контроллерах и сервисах. Jakarta Bean Validation переносит эти правила в модель данных с аннотациями @NotBlank, @Email, @Min и @Valid. Frameworks могут согласованно валидировать тела запросов, параметры методов и сущности до запуска бизнес-логики."
+whyModernWins:
+- icon: "📌"
+  title: "Правила рядом с данными"
+  desc: "Constraints находятся на полях или компонентах record, которые они описывают."
+- icon: "🔁"
+  title: "Повторно используемая валидация"
+  desc: "Одни и те же аннотации работают в REST endpoints, сервисах, формах и persistence."
+- icon: "🧹"
+  title: "Меньше boilerplate"
+  desc: "Уберите повторяющиеся if-блоки и ручное создание ошибок из business methods."
+support:
+  description: "Широко доступно в runtime Jakarta EE; часто используется в приложениях Java 11+."

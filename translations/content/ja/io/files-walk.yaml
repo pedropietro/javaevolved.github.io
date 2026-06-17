@@ -1,0 +1,17 @@
+title: "再帰的な走査には Files.walk()"
+oldApproach: "File API による手動再帰"
+modernApproach: "Files.walk()"
+summary: "Files.walk() を使って、ディレクトリツリーを Path 値の stream として走査します。"
+explanation: "古い File API では、手書きの再帰、null チェック、文字列ベースのパス処理になりがちです。Files.walk() はディレクトリツリーを Stream<Path> として公開するため、走査をフィルタ、map、limit でき、try-with-resources で閉じられます。NIO.2 API の他の部分とも自然に組み合わせられます。"
+whyModernWins:
+- icon: "🌳"
+  title: "stream として走査"
+  desc: "ディレクトリ走査が、フィルタや map を持つ通常の stream pipeline になります。"
+- icon: "🛡️"
+  title: "リソース安全"
+  desc: "try-with-resources が stream の保持するファイルシステムリソースを閉じます。"
+- icon: "📁"
+  title: "Path ベース"
+  desc: "古い File と文字列中心のパスロジックではなく、Path と Files を使います。"
+support:
+  description: "JDK 8 以降で利用可能（2014年3月）"

@@ -1,0 +1,17 @@
+title: "Downstream Collectors.filtering()"
+oldApproach: "Grouping-এর আগে stream filter"
+modernApproach: "Downstream filtering"
+summary: "যখন কোনো filter grouped downstream collector-এর অংশ, তখন Collectors.filtering() ব্যবহার করুন।"
+explanation: "Grouping-এর আগে filter করলে classifier চালানোর আগেই পুরো element বাদ পড়ে, ফলে matching value না থাকা group অদৃশ্য হয়ে যায়। Collectors.filtering() predicate-কে downstream collector-এর মধ্যে সরিয়ে দেয়। এতে grouping step সব group তৈরি করতে পারে, আর প্রতিটি bucket শুধু predicate মেলে এমন value পায়।"
+whyModernWins:
+- icon: "📦"
+  title: "Group সংরক্ষণ করে"
+  desc: "Filtered downstream result খালি হলেও group থাকতে পারে।"
+- icon: "🎯"
+  title: "সঠিক স্তরে filter"
+  desc: "Predicate grouping-এর আগে নয়, প্রতিটি grouped bucket-এর ভিতরে প্রয়োগ হয়।"
+- icon: "🧩"
+  title: "পরিষ্কার composition"
+  desc: "groupingBy, partitioningBy, mapping, flatMapping এবং অন্যান্য downstream collector-এর সঙ্গে কাজ করে।"
+support:
+  description: "JDK 9 থেকে উপলব্ধ (সেপ্টেম্বর 2017)"

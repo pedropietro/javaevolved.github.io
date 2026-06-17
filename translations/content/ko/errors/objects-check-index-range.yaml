@@ -1,0 +1,17 @@
+title: "Objects 인덱스 범위 검사"
+oldApproach: "수동 경계 검사"
+modernApproach: "Objects.checkFromIndexSize()"
+summary: "일관된 경계 오류를 위해 Objects.checkIndex(), checkFromToIndex(), checkFromIndexSize()를 사용하세요."
+explanation: "수동 범위 검사는 미묘하게 잘못 작성하기 쉽습니다. 특히 offset과 length가 overflow될 수 있거나 예외 메시지를 일관되게 유지해야 할 때 그렇습니다. Objects의 범위 검사 helper는 일반적인 인덱스 검증 패턴을 중앙화하고 검증된 인덱스를 반환하므로, 검사된 값이 바로 다음 작업으로 흐를 수 있습니다."
+whyModernWins:
+- icon: "🔒"
+  title: "경계 버그 감소"
+  desc: "JDK가 흔한 off-by-one과 잘못된 범위 사례를 일관되게 처리합니다."
+- icon: "🧹"
+  title: "사용자 정의 코드 감소"
+  desc: "반복되는 if 블록과 임시 예외 메시지를 하나의 helper로 대체합니다."
+- icon: "➡️"
+  title: "조합 가능"
+  desc: "검증된 인덱스가 반환되므로 다음 slice나 lookup에 바로 사용할 수 있습니다."
+support:
+  description: "JDK 9부터 사용 가능 (2017년 9월)"

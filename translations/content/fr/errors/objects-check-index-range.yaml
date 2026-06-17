@@ -1,0 +1,17 @@
+title: "Vérifications de plage d’index avec Objects"
+oldApproach: "Validation manuelle des limites"
+modernApproach: "Objects.checkFromIndexSize()"
+summary: "Utilisez Objects.checkIndex(), checkFromToIndex() et checkFromIndexSize() pour des erreurs de limites cohérentes."
+explanation: "Les vérifications de plage manuelles sont faciles à écrire de façon subtilement incorrecte, surtout lorsque offset et length peuvent déborder ou lorsque le message d’exception doit rester cohérent. Les helpers de vérification de plage d’Objects centralisent les validations d’index courantes et renvoient l’index validé afin que la valeur vérifiée alimente directement l’opération suivante."
+whyModernWins:
+- icon: "🔒"
+  title: "Moins de bugs de bord"
+  desc: "Le JDK gère de façon cohérente les cas off-by-one et les plages invalides courants."
+- icon: "🧹"
+  title: "Moins de code maison"
+  desc: "Remplace les blocs if répétés et les messages d’exception ad hoc par un helper."
+- icon: "➡️"
+  title: "Composable"
+  desc: "L’index validé est renvoyé, donc il peut alimenter le slice ou lookup suivant."
+support:
+  description: "Disponible depuis le JDK 9 (septembre 2017)"

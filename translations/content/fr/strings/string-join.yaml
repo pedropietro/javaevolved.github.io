@@ -1,0 +1,17 @@
+title: "String.join() pour les délimiteurs"
+oldApproach: "Logique de délimiteur avec StringBuilder"
+modernApproach: "String.join()"
+summary: "Remplacez la gestion manuelle des délimiteurs par String.join() pour des chaînes jointes plus lisibles."
+explanation: "Construire une chaîne délimitée à la main implique souvent de suivre le premier élément, d’ajouter conditionnellement les séparateurs, puis de convertir le builder en chaîne. String.join() exprime directement l’intention : joindre ces valeurs avec ce délimiteur. C’est idéal pour les libellés, les sorties de type CSV, les logs et les petites chaînes d’affichage."
+whyModernWins:
+- icon: "✂️"
+  title: "Moins de code"
+  desc: "Pas de drapeau premier élément, de virgule conditionnelle ni de cycle manuel du builder."
+- icon: "👁"
+  title: "L’intention d’abord"
+  desc: "Le délimiteur et les valeurs sont visibles dans une seule expression."
+- icon: "🧩"
+  title: "Fonctionne avec les iterables"
+  desc: "Utilisez-le avec des tableaux, listes, sets ou tout Iterable de valeurs CharSequence."
+support:
+  description: "Disponible depuis le JDK 8 (mars 2014)"

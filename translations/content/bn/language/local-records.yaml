@@ -1,0 +1,17 @@
+title: "অস্থায়ী ডেটার জন্য লোকাল record"
+oldApproach: "Ad-hoc সহায়ক ক্লাস"
+modernApproach: "লোকাল record"
+summary: "স্বল্পস্থায়ী ডেটা-আকৃতি ঠিক যেখানে দরকার, সেখানেই মডেল করতে লোকাল record ব্যবহার করুন।"
+explanation: "যখন কোনো সহায়ক টাইপ শুধুমাত্র একটি গণনার জন্য থাকে, তখন ক্লাস-লেভেলে DTO ঘোষণা করলে চারপাশের ক্লাস অপ্রয়োজনীয়ভাবে ভারী হয়। লোকাল record অস্থায়ী গঠনটিকে যে stream, query বা transformation সেটি ব্যবহার করে তার কাছাকাছি রাখে। তবুও আপনি একটি নামযুক্ত টাইপ, accessors, equals, hashCode এবং toString পান, কিন্তু scope ছোট থাকে।"
+whyModernWins:
+- icon: "📍"
+  title: "সংকীর্ণ scope"
+  desc: "সহায়ক টাইপটি শুধু সেই method-এর ভিতর দৃশ্যমান থাকে যেখানে এটি দরকার।"
+- icon: "🧩"
+  title: "পরিষ্কার ডেটা-আকৃতি"
+  desc: "record ঘোষণা সম্পূর্ণ DTO ক্লাস ছাড়াই অস্থায়ী field-গুলো নথিভুক্ত করে।"
+- icon: "✂️"
+  title: "কম boilerplate"
+  desc: "Accessors, equality, hashCode এবং toString স্বয়ংক্রিয়ভাবে তৈরি হয়।"
+support:
+  description: "JDK 16 থেকে ব্যাপকভাবে উপলব্ধ (মার্চ 2021)"

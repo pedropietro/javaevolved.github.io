@@ -1,0 +1,17 @@
+title: "javac --release pour la compilation croisée"
+oldApproach: "-source et -target"
+modernApproach: "--release"
+summary: "Utilisez javac --release au lieu de seulement -source et -target lorsque vous compilez pour d’anciennes versions de Java."
+explanation: "Les options -source et -target contrôlent la syntaxe et la version du class file, mais n’empêchent pas à elles seules l’utilisation accidentelle d’API JDK plus récentes. L’option --release sélectionne le niveau de langage, la cible du class file et l’API de plateforme pour la version Java demandée. Cela rend la compilation croisée plus sûre et plus facile à comprendre."
+whyModernWins:
+- icon: "🔒"
+  title: "Sûr côté API"
+  desc: "Le compilateur rejette les appels à des API JDK indisponibles dans la release sélectionnée."
+- icon: "🧹"
+  title: "Commande plus simple"
+  desc: "Une seule option remplace source, target et la configuration de type bootclasspath."
+- icon: "📦"
+  title: "Artefacts fiables"
+  desc: "Les classes générées sont alignées avec la version de Java que vous voulez prendre en charge."
+support:
+  description: "Disponible depuis le JDK 9 (septembre 2017)"

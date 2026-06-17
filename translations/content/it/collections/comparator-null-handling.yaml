@@ -1,0 +1,17 @@
+title: "Ordinamento null-safe con Comparator"
+oldApproach: "Rami di confronto personalizzati"
+modernApproach: "Comparator.nullsLast()"
+summary: "Usa Comparator.nullsFirst() o nullsLast() invece di scrivere rami manuali per null."
+explanation: "Ordinare a mano valori che possono essere null spesso ripete la stessa fragile catena if/else in ogni comparator. Comparator.nullsFirst() e nullsLast() incapsulano l'ordinamento reale e rendono esplicita la politica per null. Il risultato è più breve, più leggibile e meno incline a lanciare accidentalmente una NullPointerException durante l'ordinamento."
+whyModernWins:
+- icon: "🧹"
+  title: "Meno ramificazioni"
+  desc: "Un metodo factory sostituisce diversi controlli null ripetuti."
+- icon: "👁"
+  title: "Politica chiara"
+  desc: "Il codice mostra subito se i valori null vengono prima o alla fine."
+- icon: "🔒"
+  title: "Ordinamento più sicuro"
+  desc: "Il comparator incapsulato viene chiamato solo quando entrambi i valori non sono null."
+support:
+  description: "Disponibile dal JDK 8 (marzo 2014)"

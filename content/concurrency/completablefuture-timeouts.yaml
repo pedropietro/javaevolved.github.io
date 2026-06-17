@@ -1,0 +1,50 @@
+---
+id: 118
+slug: "completablefuture-timeouts"
+title: "CompletableFuture timeouts"
+category: "concurrency"
+difficulty: "intermediate"
+jdkVersion: "9"
+oldLabel: "Manual scheduler"
+modernLabel: "Java 9+"
+oldApproach: "Scheduled timeout task"
+modernApproach: "orTimeout()"
+oldCode: |-
+  ScheduledExecutorService scheduler =
+      Executors.newSingleThreadScheduledExecutor();
+
+  CompletableFuture<User> result = fetchUser(id);
+  scheduler.schedule(
+      () -> result.completeExceptionally(
+          new TimeoutException("Timed out")),
+      2, TimeUnit.SECONDS);
+modernCode: |-
+  CompletableFuture<User> result =
+      fetchUser(id)
+          .orTimeout(2, TimeUnit.SECONDS);
+summary: "Use CompletableFuture.orTimeout() or completeOnTimeout() instead of a separate scheduler."
+explanation: "Before Java 9, timing out a CompletableFuture meant creating a ScheduledExecutorService and wiring a task that completed the future manually. The timeout methods put that behavior on the future itself. Use orTimeout() when the operation should fail, or completeOnTimeout() when you want a fallback value."
+whyModernWins:
+- icon: "⏱️"
+  title: "Built-in timeout"
+  desc: "The timeout policy is attached directly to the asynchronous computation."
+- icon: "🧹"
+  title: "No scheduler boilerplate"
+  desc: "No extra executor, scheduled task, or manual exceptional completion block."
+- icon: "🔀"
+  title: "Clear failure or fallback"
+  desc: "Choose orTimeout() for failure or completeOnTimeout() for a default value."
+support:
+  state: "available"
+  description: "Available since JDK 9 (September 2017)"
+prev: "streams/collectors-filtering"
+next: "io/files-walk"
+related:
+- "concurrency/completablefuture-chaining"
+- "concurrency/structured-concurrency"
+- "concurrency/thread-sleep-duration"
+docs:
+- title: "CompletableFuture.orTimeout() Javadoc"
+  href: "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/CompletableFuture.html#orTimeout(long,java.util.concurrent.TimeUnit)"
+- title: "CompletableFuture.completeOnTimeout() Javadoc"
+  href: "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/CompletableFuture.html#completeOnTimeout(T,long,java.util.concurrent.TimeUnit)"

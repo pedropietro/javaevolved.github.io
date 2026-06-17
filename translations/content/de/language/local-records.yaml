@@ -1,0 +1,17 @@
+title: "Lokale Records für temporäre Daten"
+oldApproach: "Ad-hoc-Hilfsklasse"
+modernApproach: "Lokaler Record"
+summary: "Nutze lokale Records, um kurzlebige Datenformen genau dort zu modellieren, wo sie gebraucht werden."
+explanation: "Wenn ein Hilfstyp nur für eine Berechnung existiert, macht ein DTO auf Klassenebene die umgebende Klasse unnötig unruhig. Ein lokaler Record hält die temporäre Struktur nahe am Stream, an der Abfrage oder an der Transformation, die sie verwendet. Du erhältst weiterhin einen benannten Typ, Accessoren, equals, hashCode und toString, aber der Gültigkeitsbereich bleibt klein."
+whyModernWins:
+- icon: "📍"
+  title: "Kleinerer Scope"
+  desc: "Der Hilfstyp ist nur innerhalb der Methode sichtbar, die ihn benötigt."
+- icon: "🧩"
+  title: "Klare Datenform"
+  desc: "Die Record-Deklaration dokumentiert die temporären Felder ohne vollständige DTO-Klasse."
+- icon: "✂️"
+  title: "Weniger Boilerplate"
+  desc: "Accessoren, Gleichheit, hashCode und toString werden automatisch erzeugt."
+support:
+  description: "Seit JDK 16 allgemein verfügbar (März 2021)"

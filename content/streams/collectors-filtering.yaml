@@ -1,0 +1,49 @@
+---
+id: 117
+slug: "collectors-filtering"
+title: "Collectors.filtering() downstream"
+category: "streams"
+difficulty: "intermediate"
+jdkVersion: "9"
+oldLabel: "Pre-filter stream"
+modernLabel: "Java 9+"
+oldApproach: "Filter before grouping"
+modernApproach: "Downstream filtering"
+oldCode: |-
+  Map<String, List<User>> activeByTeam =
+      users.stream()
+          .filter(User::active)
+          .collect(Collectors.groupingBy(
+              User::team));
+modernCode: |-
+  Map<String, List<User>> activeByTeam =
+      users.stream()
+          .collect(Collectors.groupingBy(
+              User::team,
+              Collectors.filtering(
+                  User::active,
+                  Collectors.toList())));
+summary: "Use Collectors.filtering() when a filter belongs inside a grouped downstream collector."
+explanation: "Filtering before grouping removes entire elements before the classifier runs, so groups with no matching values disappear. Collectors.filtering() moves the predicate into the downstream collector. That lets the grouping step still create every group while each bucket receives only the values that match the predicate."
+whyModernWins:
+- icon: "📦"
+  title: "Preserves groups"
+  desc: "Groups can exist even when their filtered downstream result is empty."
+- icon: "🎯"
+  title: "Filter at the right level"
+  desc: "The predicate applies inside each grouped bucket instead of before grouping."
+- icon: "🧩"
+  title: "Composes cleanly"
+  desc: "Works with groupingBy, partitioningBy, mapping, flatMapping, and other downstream collectors."
+support:
+  state: "available"
+  description: "Available since JDK 9 (September 2017)"
+prev: "strings/string-join"
+next: "concurrency/completablefuture-timeouts"
+related:
+- "streams/collectors-flatmapping"
+- "streams/collectors-teeing"
+- "streams/stream-tolist"
+docs:
+- title: "Collectors.filtering() Javadoc"
+  href: "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/Collectors.html#filtering(java.util.function.Predicate,java.util.stream.Collector)"

@@ -1,0 +1,17 @@
+title: "Files.walk() para travessia recursiva"
+oldApproach: "Recursão manual com File"
+modernApproach: "Files.walk()"
+summary: "Use Files.walk() para percorrer árvores de diretórios como um stream de valores Path."
+explanation: "A API antiga File incentiva recursão escrita à mão, verificações de null e manipulação de caminhos baseada em strings. Files.walk() expõe uma árvore de diretórios como Stream<Path>, permitindo filtrar, mapear, limitar e fechar a travessia com try-with-resources. Ela se compõe naturalmente com o restante da API NIO.2."
+whyModernWins:
+- icon: "🌳"
+  title: "Travessia como stream"
+  desc: "Percorrer diretórios vira um pipeline normal de stream com filtros e maps."
+- icon: "🛡️"
+  title: "Seguro em recursos"
+  desc: "try-with-resources fecha os recursos do sistema de arquivos pertencentes ao stream."
+- icon: "📁"
+  title: "Baseado em Path"
+  desc: "Usa Path e Files em vez de File legado e lógica de caminho baseada em strings."
+support:
+  description: "Disponível desde o JDK 8 (março de 2014)"

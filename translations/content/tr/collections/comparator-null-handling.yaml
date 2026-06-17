@@ -1,0 +1,17 @@
+title: "Comparator ile null güvenli sıralama"
+oldApproach: "Özel karşılaştırma dalları"
+modernApproach: "Comparator.nullsLast()"
+summary: "Elle yazılmış null dalları yerine Comparator.nullsFirst() veya nullsLast() kullanın."
+explanation: "Null olabilecek değerleri elle sıralamak, her comparator içinde aynı kırılgan if/else zincirini tekrarlar. Comparator.nullsFirst() ve nullsLast(), gerçek sıralamayı sarar ve null politikasını açık hale getirir. Sonuç daha kısa, daha okunabilir ve sıralama sırasında yanlışlıkla NullPointerException fırlatma olasılığı daha düşüktür."
+whyModernWins:
+- icon: "🧹"
+  title: "Daha az dal"
+  desc: "Tek bir fabrika metodu, tekrarlanan birkaç null kontrolünün yerini alır."
+- icon: "👁"
+  title: "Açık politika"
+  desc: "Kod null değerlerin başa mı sona mı geleceğini hemen gösterir."
+- icon: "🔒"
+  title: "Daha güvenli sıralama"
+  desc: "Sarılan comparator yalnızca iki değer de null değilken çağrılır."
+support:
+  description: "JDK 8'den beri kullanılabilir (Mart 2014)"

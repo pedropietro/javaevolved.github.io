@@ -1,0 +1,17 @@
+title: "Files.walk() для рекурсивного обхода"
+oldApproach: "Ручная рекурсия с File"
+modernApproach: "Files.walk()"
+summary: "Используйте Files.walk(), чтобы обходить деревья каталогов как stream значений Path."
+explanation: "Старая API File подталкивает к ручной рекурсии, проверкам null и работе с путями через строки. Files.walk() представляет дерево каталогов как Stream<Path>, поэтому обход можно фильтровать, преобразовывать, ограничивать и закрывать через try-with-resources. Он естественно сочетается с остальной API NIO.2."
+whyModernWins:
+- icon: "🌳"
+  title: "Обход как stream"
+  desc: "Обход каталогов становится обычным stream pipeline с фильтрами и map."
+- icon: "🛡️"
+  title: "Безопасно для ресурсов"
+  desc: "try-with-resources закрывает ресурсы файловой системы, которыми владеет stream."
+- icon: "📁"
+  title: "На основе Path"
+  desc: "Использует Path и Files вместо legacy File и строковой логики путей."
+support:
+  description: "Доступно с JDK 8 (март 2014)"

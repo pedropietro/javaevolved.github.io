@@ -1,0 +1,17 @@
+title: "Jakarta Bean Validation 애노테이션"
+oldApproach: "명령형 검증"
+modernApproach: "제약 애노테이션"
+summary: "반복되는 명령형 검증을 Jakarta Bean Validation 제약으로 대체하세요."
+explanation: "엔터프라이즈 애플리케이션은 controller와 service에서 같은 null, 범위, 형식 검사를 반복하는 경우가 많습니다. Jakarta Bean Validation은 @NotBlank, @Email, @Min, @Valid 같은 애노테이션으로 이러한 규칙을 데이터 모델로 옮깁니다. 프레임워크는 비즈니스 로직이 실행되기 전에 request body, 메서드 파라미터, entity를 일관되게 검증할 수 있습니다."
+whyModernWins:
+- icon: "📌"
+  title: "데이터 옆의 규칙"
+  desc: "제약은 설명하는 필드나 record 컴포넌트 위에 위치합니다."
+- icon: "🔁"
+  title: "재사용 가능한 검증"
+  desc: "같은 애노테이션이 REST endpoint, service, form, persistence에서 동작합니다."
+- icon: "🧹"
+  title: "보일러플레이트 감소"
+  desc: "비즈니스 메서드에서 반복되는 if 블록과 수동 오류 생성을 제거합니다."
+support:
+  description: "Jakarta EE 런타임에서 널리 사용 가능하며 Java 11+ 애플리케이션에서 흔히 사용됩니다."

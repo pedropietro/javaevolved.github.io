@@ -1,0 +1,17 @@
+title: "常量时间字节比较"
+oldApproach: "对秘密值使用 Arrays.equals()"
+modernApproach: "MessageDigest.isEqual()"
+summary: "比较 MAC、签名、token 或密码哈希时，使用 MessageDigest.isEqual()。"
+explanation: "普通相等性 helper 可能在发现第一个差异后立即返回，这对普通数据没问题，但对由秘密派生的字节并不理想。MessageDigest.isEqual() 面向安全敏感的 byte array 比较，避免明显的提前返回模式。可用于 MAC、digest、签名和验证 token 等值。"
+whyModernWins:
+- icon: "🔐"
+  title: "秘密检查更安全"
+  desc: "避免普通非秘密数据比较中常见的提前返回形态。"
+- icon: "🧹"
+  title: "不写自定义加密逻辑"
+  desc: "使用 JDK helper，而不是自己编写字节比较循环。"
+- icon: "🎯"
+  title: "意图清晰"
+  desc: "审查者可以立即看出该比较对安全敏感。"
+support:
+  description: "在所有受支持的现代 JDK 中可用；推荐用于由秘密派生的 byte array。"

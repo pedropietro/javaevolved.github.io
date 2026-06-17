@@ -1,0 +1,17 @@
+title: "Files.walk() للتنقل التكراري"
+oldApproach: "استدعاء تكراري يدوي باستخدام File"
+modernApproach: "Files.walk()"
+summary: "استخدم Files.walk() للتنقل داخل أشجار المجلدات كـ stream من قيم Path."
+explanation: "تدفعك API القديمة File غالباً إلى كتابة recursion يدوي، وفحوصات null، ومنطق مسارات يعتمد على strings. تعرض Files.walk() شجرة المجلدات كـ Stream<Path>، لذلك يمكن تصفية التنقل وتحويله وتقييده وإغلاقه باستخدام try-with-resources. وهي تتكامل طبيعياً مع بقية API NIO.2."
+whyModernWins:
+- icon: "🌳"
+  title: "تنقل كـ stream"
+  desc: "يصبح التنقل في المجلدات pipeline عادي للـ stream مع فلاتر و maps."
+- icon: "🛡️"
+  title: "آمن للموارد"
+  desc: "يغلق try-with-resources موارد نظام الملفات التي يملكها stream."
+- icon: "📁"
+  title: "يعتمد على Path"
+  desc: "يستخدم Path و Files بدلاً من File القديمة ومنطق المسارات المعتمد بكثافة على strings."
+support:
+  description: "متاح منذ JDK 8 (مارس 2014)"

@@ -1,0 +1,17 @@
+title: "String.join() für Trennzeichen"
+oldApproach: "Trennzeichenlogik mit StringBuilder"
+modernApproach: "String.join()"
+summary: "Ersetze manuelle Trennzeichenverwaltung durch String.join() für besser lesbare verbundene Strings."
+explanation: "Einen getrennten String von Hand zu bauen bedeutet meist, das erste Element zu verfolgen, Trennzeichen bedingt anzuhängen und den Builder am Ende in einen String umzuwandeln. String.join() drückt die Absicht direkt aus: diese Werte mit diesem Trennzeichen verbinden. Das eignet sich ideal für Labels, CSV-ähnliche Ausgaben, Logs und kurze Anzeige-Strings."
+whyModernWins:
+- icon: "✂️"
+  title: "Weniger Code"
+  desc: "Keine First-Element-Flag, kein bedingtes Komma und kein manueller Builder-Lebenszyklus."
+- icon: "👁"
+  title: "Absicht zuerst"
+  desc: "Trennzeichen und Werte stehen in einem einzigen Ausdruck."
+- icon: "🧩"
+  title: "Funktioniert mit Iterables"
+  desc: "Nutze es mit Arrays, Listen, Sets oder jedem Iterable aus CharSequence-Werten."
+support:
+  description: "Verfügbar seit JDK 8 (März 2014)"

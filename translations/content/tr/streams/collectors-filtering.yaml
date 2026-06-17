@@ -1,0 +1,17 @@
+title: "Downstream Collectors.filtering()"
+oldApproach: "Gruplamadan önce filtrelemek"
+modernApproach: "Downstream filtreleme"
+summary: "Bir filtre gruplamanın downstream collector'ına aitse Collectors.filtering() kullanın."
+explanation: "Gruplamadan önce filtrelemek, sınıflandırıcı çalışmadan önce tüm öğeleri kaldırır; bu yüzden eşleşen değeri olmayan gruplar kaybolur. Collectors.filtering() predikatı downstream collector içine taşır. Böylece grouping adımı her grubu oluşturmaya devam ederken, her bucket yalnızca predikata uyan değerleri alır."
+whyModernWins:
+- icon: "📦"
+  title: "Grupları korur"
+  desc: "Filtrelenmiş downstream sonucu boş olsa bile gruplar var olabilir."
+- icon: "🎯"
+  title: "Doğru seviyede filtre"
+  desc: "Predikat, gruplamadan önce değil her gruplu bucket içinde uygulanır."
+- icon: "🧩"
+  title: "Temiz birleşir"
+  desc: "groupingBy, partitioningBy, mapping, flatMapping ve diğer downstream collector'larla çalışır."
+support:
+  description: "JDK 9'dan beri kullanılabilir (Eylül 2017)"

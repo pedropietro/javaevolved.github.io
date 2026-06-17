@@ -37,31 +37,22 @@ modernCode: |-
           .and(USERS.SALARY.gt(minSalary)))
       .fetchInto(User.class);
 summary: "Replace raw JDBC string-based SQL with jOOQ's type-safe, fluent SQL DSL."
-explanation: "jOOQ (Java Object Oriented Querying) generates Java code from your database\
-  \ schema, turning table and column names into type-safe Java constants. The fluent\
-  \ DSL mirrors SQL syntax so queries are readable and composable. All parameters\
-  \ are bound automatically, eliminating SQL injection risk. Unlike JPA/JPQL, jOOQ\
-  \ embraces SQL fully — window functions, CTEs, RETURNING clauses, and vendor-specific\
-  \ extensions are all first-class."
+explanation: "jOOQ (Java Object Oriented Querying) generates Java code from your database schema, turning table and column names into type-safe Java constants. The fluent DSL mirrors SQL syntax so queries are readable and composable. All parameters are bound automatically, eliminating SQL injection risk. Unlike JPA/JPQL, jOOQ embraces SQL fully — window functions, CTEs, RETURNING clauses, and vendor-specific extensions are all first-class."
 whyModernWins:
 - icon: "🔒"
   title: "Type-safe columns"
-  desc: "Column names are generated Java constants — typos and type mismatches become\
-    \ compiler errors instead of runtime failures."
+  desc: "Column names are generated Java constants — typos and type mismatches become compiler errors instead of runtime failures."
 - icon: "📖"
   title: "SQL fluency"
-  desc: "The jOOQ DSL mirrors SQL syntax closely, so complex JOINs, subqueries, and\
-    \ CTEs stay readable."
+  desc: "The jOOQ DSL mirrors SQL syntax closely, so complex JOINs, subqueries, and CTEs stay readable."
 - icon: "🛡️"
   title: "Injection-free by design"
-  desc: "Parameters are always bound safely — no string concatenation means no SQL\
-    \ injection risk."
+  desc: "Parameters are always bound safely — no string concatenation means no SQL injection risk."
 support:
   state: "available"
-  description: "jOOQ open-source edition supports all major open-source databases;\
-    \ older commercial databases require a paid license"
+  description: "jOOQ open-source edition supports all major open-source databases; older commercial databases require a paid license"
 prev: "enterprise/spring-xml-config-vs-annotations"
-next: null
+next: "language/local-records"
 related:
 - "enterprise/jdbc-vs-jpa"
 - "enterprise/jdbc-resultset-vs-jpa-criteria"

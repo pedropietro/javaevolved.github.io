@@ -1,0 +1,17 @@
+title: "Records locaux pour données temporaires"
+oldApproach: "Classe auxiliaire ad hoc"
+modernApproach: "Record local"
+summary: "Utilisez des records locaux pour modéliser des formes de données éphémères exactement là où elles sont nécessaires."
+explanation: "Lorsqu’un type auxiliaire n’existe que pour un calcul, déclarer un DTO au niveau de la classe ajoute du bruit inutile. Un record local garde la structure temporaire près du stream, de la requête ou de la transformation qui l’utilise. Vous conservez un type nommé, des accesseurs, equals, hashCode et toString, mais avec une portée réduite."
+whyModernWins:
+- icon: "📍"
+  title: "Portée réduite"
+  desc: "Le type auxiliaire n’est visible que dans la méthode qui en a besoin."
+- icon: "🧩"
+  title: "Forme de données claire"
+  desc: "La déclaration du record documente les champs temporaires sans classe DTO complète."
+- icon: "✂️"
+  title: "Moins de boilerplate"
+  desc: "Les accesseurs, l’égalité, hashCode et toString sont générés automatiquement."
+support:
+  description: "Largement disponible depuis le JDK 16 (mars 2021)"

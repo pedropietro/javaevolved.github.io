@@ -1,0 +1,17 @@
+title: "javac --release per cross-compilation"
+oldApproach: "-source e -target"
+modernApproach: "--release"
+summary: "Usa javac --release invece di solo -source e -target quando compili per versioni Java più vecchie."
+explanation: "Le flag -source e -target controllano la sintassi e la versione del class file, ma da sole non impediscono l'uso accidentale di API JDK più recenti. La flag --release seleziona il livello del linguaggio, il target del class file e l'API della piattaforma per la release Java richiesta. Questo rende la cross-compilation più sicura e più facile da ragionare."
+whyModernWins:
+- icon: "🔒"
+  title: "Sicuro per le API"
+  desc: "Il compilatore rifiuta chiamate ad API JDK non disponibili nella release selezionata."
+- icon: "🧹"
+  title: "Comando più semplice"
+  desc: "Una flag sostituisce source, target e configurazioni stile bootclasspath."
+- icon: "📦"
+  title: "Artefatti affidabili"
+  desc: "Le classi generate sono allineate alla versione Java che vuoi supportare."
+support:
+  description: "Disponibile dal JDK 9 (settembre 2017)"

@@ -1,0 +1,17 @@
+title: "Collectors.filtering() как downstream"
+oldApproach: "Фильтрация до группировки"
+modernApproach: "Downstream-фильтрация"
+summary: "Используйте Collectors.filtering(), когда фильтр относится к downstream-collector внутри группировки."
+explanation: "Фильтрация перед группировкой удаляет целые элементы до запуска классификатора, поэтому группы без подходящих значений исчезают. Collectors.filtering() переносит предикат внутрь downstream-collector. Так шаг grouping все еще создает каждую группу, а каждый bucket получает только значения, прошедшие предикат."
+whyModernWins:
+- icon: "📦"
+  title: "Сохраняет группы"
+  desc: "Группы могут существовать даже когда их отфильтрованный downstream-результат пуст."
+- icon: "🎯"
+  title: "Фильтр на нужном уровне"
+  desc: "Предикат применяется внутри каждого сгруппированного bucket, а не до группировки."
+- icon: "🧩"
+  title: "Чисто компонуется"
+  desc: "Работает с groupingBy, partitioningBy, mapping, flatMapping и другими downstream collectors."
+support:
+  description: "Доступно с JDK 9 (сентябрь 2017)"
