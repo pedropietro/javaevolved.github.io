@@ -1,0 +1,17 @@
+title: "Clock dla testowalnego czasu"
+oldApproach: "Czas systemowy"
+modernApproach: "Wstrzyknięty Clock"
+summary: "Wstrzykuj java.time.Clock zamiast wpisywać na stałe zegar systemowy w logice daty i czasu."
+explanation: "Wywoływanie now() bezpośrednio w kodzie domenowym utrudnia testowanie zachowań zależnych od czasu. Clock pozwala kodowi produkcyjnemu używać zegara systemowego, a testom podać Clock.fixed() lub Clock.offset(). Logika nadal używa API java.time, ale czas staje się jawną zależnością zamiast ukrytego stanu globalnego."
+whyModernWins:
+- icon: "🧪"
+  title: "Deterministyczne testy"
+  desc: "Testy mogą zamrozić czas przez Clock.fixed(), zamiast spać lub ścigać się z prawdziwym zegarem."
+- icon: "👁"
+  title: "Jawna zależność"
+  desc: "Klasy zależne od czasu pokazują to w konstruktorze."
+- icon: "🌍"
+  title: "Świadomość strefy"
+  desc: "Clock niesie ZoneId, dzięki czemu decyzje o strefie czasowej są widoczne i konfigurowalne."
+support:
+  description: "Dostępne od JDK 8 (marzec 2014)"

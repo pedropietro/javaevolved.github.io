@@ -1,0 +1,17 @@
+title: "Sprawdzanie zakresów indeksów z Objects"
+oldApproach: "Ręczna walidacja granic"
+modernApproach: "Objects.checkFromIndexSize()"
+summary: "Używaj Objects.checkIndex(), checkFromToIndex() i checkFromIndexSize() dla spójnych błędów granic."
+explanation: "Ręczne sprawdzanie zakresów łatwo subtelnie zepsuć, szczególnie gdy offset i length mogą się przepełnić albo komunikat wyjątku musi pozostać spójny. Pomocnicze metody zakresów w Objects centralizują typowe wzorce walidacji indeksów i zwracają sprawdzony indeks, dzięki czemu zweryfikowana wartość trafia bezpośrednio do kolejnej operacji."
+whyModernWins:
+- icon: "🔒"
+  title: "Mniej błędów brzegowych"
+  desc: "JDK spójnie obsługuje typowe przypadki off-by-one i niepoprawnych zakresów."
+- icon: "🧹"
+  title: "Mniej własnego kodu"
+  desc: "Zastąp powtarzane bloki if i doraźne komunikaty wyjątków jedną metodą pomocniczą."
+- icon: "➡️"
+  title: "Komponowalne"
+  desc: "Zweryfikowany indeks jest zwracany, więc może zasilić kolejne slice lub lookup."
+support:
+  description: "Dostępne od JDK 9 (wrzesień 2017)"

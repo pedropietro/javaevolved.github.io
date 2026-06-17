@@ -1,0 +1,17 @@
+title: "Sortowanie null-safe z Comparator"
+oldApproach: "Własne gałęzie porównania"
+modernApproach: "Comparator.nullsLast()"
+summary: "Używaj Comparator.nullsFirst() lub nullsLast() zamiast ręcznie pisanych gałęzi dla null."
+explanation: "Ręczne sortowanie wartości, które mogą być null, często powtarza ten sam kruchy łańcuch if/else w każdym comparatorze. Comparator.nullsFirst() i nullsLast() opakowują właściwe sortowanie i jasno pokazują politykę obsługi null. Wynik jest krótszy, czytelniejszy i mniej podatny na przypadkowe NullPointerException podczas sortowania."
+whyModernWins:
+- icon: "🧹"
+  title: "Mniej rozgałęzień"
+  desc: "Jedna metoda fabryczna zastępuje kilka powtarzanych sprawdzeń null."
+- icon: "👁"
+  title: "Jasna polityka"
+  desc: "Kod od razu pokazuje, czy wartości null trafiają na początek czy na koniec."
+- icon: "🔒"
+  title: "Bezpieczniejsze sortowanie"
+  desc: "Opakowany comparator jest wywoływany tylko wtedy, gdy obie wartości nie są null."
+support:
+  description: "Dostępne od JDK 8 (marzec 2014)"

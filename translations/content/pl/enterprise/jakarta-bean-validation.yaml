@@ -1,0 +1,17 @@
+title: "Adnotacje Jakarta Bean Validation"
+oldApproach: "Walidacja imperatywna"
+modernApproach: "Adnotacje ograniczeń"
+summary: "Zastąp powtarzaną walidację imperatywną ograniczeniami Jakarta Bean Validation."
+explanation: "Aplikacje enterprise często powtarzają te same sprawdzenia null, zakresu i formatu w kontrolerach oraz usługach. Jakarta Bean Validation przenosi te reguły do modelu danych za pomocą adnotacji takich jak @NotBlank, @Email, @Min i @Valid. Frameworki mogą wtedy spójnie walidować body żądań, parametry metod i encje przed uruchomieniem logiki biznesowej."
+whyModernWins:
+- icon: "📌"
+  title: "Reguły przy danych"
+  desc: "Ograniczenia znajdują się na polach lub komponentach rekordu, które opisują."
+- icon: "🔁"
+  title: "Walidacja wielokrotnego użytku"
+  desc: "Te same adnotacje działają w endpointach REST, usługach, formularzach i warstwie persistence."
+- icon: "🧹"
+  title: "Mniej boilerplate"
+  desc: "Usuń powtarzane bloki if i ręczne tworzenie błędów z metod biznesowych."
+support:
+  description: "Szeroko dostępne w runtime'ach Jakarta EE; często używane w aplikacjach Java 11+."

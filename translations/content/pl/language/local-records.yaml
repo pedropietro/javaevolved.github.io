@@ -1,0 +1,17 @@
+title: "Lokalne rekordy dla danych tymczasowych"
+oldApproach: "Doraźna klasa pomocnicza"
+modernApproach: "Lokalny rekord"
+summary: "Używaj lokalnych rekordów do modelowania krótkotrwałych struktur danych dokładnie tam, gdzie są potrzebne."
+explanation: "Gdy typ pomocniczy istnieje tylko dla jednego obliczenia, deklarowanie DTO na poziomie klasy niepotrzebnie zaśmieca klasę otaczającą. Lokalny rekord trzyma tymczasową strukturę blisko strumienia, zapytania lub transformacji, która jej używa. Nadal otrzymujesz nazwany typ, akcesory, equals, hashCode i toString, ale zakres pozostaje mały."
+whyModernWins:
+- icon: "📍"
+  title: "Węższy zakres"
+  desc: "Typ pomocniczy jest widoczny tylko wewnątrz metody, która go potrzebuje."
+- icon: "🧩"
+  title: "Jasny kształt danych"
+  desc: "Deklaracja rekordu dokumentuje pola tymczasowe bez pełnej klasy DTO."
+- icon: "✂️"
+  title: "Mniej boilerplate"
+  desc: "Akcesory, równość, hashCode i toString są generowane automatycznie."
+support:
+  description: "Szeroko dostępne od JDK 16 (marzec 2021)"

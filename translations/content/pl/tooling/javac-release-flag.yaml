@@ -1,0 +1,17 @@
+title: "javac --release do kompilacji krzyżowej"
+oldApproach: "-source i -target"
+modernApproach: "--release"
+summary: "Używaj javac --release zamiast samych -source i -target podczas kompilowania dla starszych wersji Javy."
+explanation: "Flagi -source i -target sterują składnią oraz wersją class file, ale same nie zapobiegają przypadkowemu użyciu nowszych API JDK. Flaga --release wybiera poziom języka, docelowy class file i API platformy dla żądanej wersji Javy. Dzięki temu kompilacja krzyżowa jest bezpieczniejsza i łatwiejsza do zrozumienia."
+whyModernWins:
+- icon: "🔒"
+  title: "Bezpieczne API"
+  desc: "Kompilator odrzuca wywołania API JDK niedostępnych w wybranej release."
+- icon: "🧹"
+  title: "Prostsze polecenie"
+  desc: "Jedna flaga zastępuje source, target i konfigurację w stylu bootclasspath."
+- icon: "📦"
+  title: "Wiarygodne artefakty"
+  desc: "Wygenerowane klasy są zgodne z wersją Javy, którą chcesz wspierać."
+support:
+  description: "Dostępne od JDK 9 (wrzesień 2017)"

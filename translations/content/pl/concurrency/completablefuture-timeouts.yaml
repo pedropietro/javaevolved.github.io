@@ -1,0 +1,17 @@
+title: "Timeouty w CompletableFuture"
+oldApproach: "Ręcznie zaplanowane zadanie"
+modernApproach: "orTimeout()"
+summary: "Używaj CompletableFuture.orTimeout() lub completeOnTimeout() zamiast osobnego schedulera."
+explanation: "Przed Javą 9 ustawienie timeoutu dla CompletableFuture wymagało utworzenia ScheduledExecutorService i podłączenia zadania, które ręcznie kończyło future. Metody timeout przenoszą to zachowanie na samo future. Użyj orTimeout(), gdy operacja ma zakończyć się błędem, albo completeOnTimeout(), gdy chcesz wartość zapasową."
+whyModernWins:
+- icon: "⏱️"
+  title: "Wbudowany timeout"
+  desc: "Polityka timeoutu jest podpięta bezpośrednio do obliczenia asynchronicznego."
+- icon: "🧹"
+  title: "Bez boilerplate schedulera"
+  desc: "Bez dodatkowego executora, zaplanowanego zadania i ręcznego bloku exceptional completion."
+- icon: "🔀"
+  title: "Jasny błąd lub fallback"
+  desc: "Wybierz orTimeout() dla błędu albo completeOnTimeout() dla wartości domyślnej."
+support:
+  description: "Dostępne od JDK 9 (wrzesień 2017)"

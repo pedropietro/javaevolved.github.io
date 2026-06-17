@@ -1,0 +1,17 @@
+title: "Porównywanie bajtów w stałym czasie"
+oldApproach: "Arrays.equals() dla sekretów"
+modernApproach: "MessageDigest.isEqual()"
+summary: "Używaj MessageDigest.isEqual() przy porównywaniu MAC, podpisów, tokenów lub skrótów haseł."
+explanation: "Zwykłe metody równości mogą zwrócić wynik od razu po znalezieniu różnicy, co jest dobre dla zwykłych danych, ale niepożądane dla bajtów pochodzących z sekretów. MessageDigest.isEqual() jest zaprojektowane do bezpieczeństwa przy porównywaniu tablic bajtów i unika oczywistego wzorca wcześniejszego wyjścia. Używaj go dla wartości takich jak MAC, digest, podpisy i tokeny weryfikacyjne."
+whyModernWins:
+- icon: "🔐"
+  title: "Bezpieczniejsze sprawdzanie sekretów"
+  desc: "Unika zwykłej formy porównania z wcześniejszym wyjściem używanej dla danych niebędących sekretami."
+- icon: "🧹"
+  title: "Bez własnej kryptografii"
+  desc: "Użyj helpera JDK zamiast pisać własną pętlę porównywania bajtów."
+- icon: "🎯"
+  title: "Jasna intencja"
+  desc: "Reviewerzy od razu widzą, że porównanie jest wrażliwe bezpieczeństwowo."
+support:
+  description: "Dostępne we wszystkich wspieranych nowoczesnych JDK; zalecane dla tablic bajtów pochodzących z sekretów."
