@@ -1,0 +1,17 @@
+title: "Tri null-safe avec Comparator"
+oldApproach: "Branches de comparaison personnalisées"
+modernApproach: "Comparator.nullsLast()"
+summary: "Utilisez Comparator.nullsFirst() ou nullsLast() au lieu d’écrire des branches null manuelles."
+explanation: "Trier à la main des valeurs pouvant être null répète souvent la même chaîne if/else fragile dans chaque comparator. Comparator.nullsFirst() et nullsLast() enveloppent l’ordre réel et rendent explicite la politique pour null. Le résultat est plus court, plus lisible et moins susceptible de lancer accidentellement une NullPointerException pendant le tri."
+whyModernWins:
+- icon: "🧹"
+  title: "Moins de branches"
+  desc: "Une méthode de fabrique remplace plusieurs vérifications null répétées."
+- icon: "👁"
+  title: "Politique claire"
+  desc: "Le code indique immédiatement si les valeurs null apparaissent au début ou à la fin."
+- icon: "🔒"
+  title: "Tri plus sûr"
+  desc: "Le comparator enveloppé n’est appelé que lorsque les deux valeurs ne sont pas null."
+support:
+  description: "Disponible depuis le JDK 8 (mars 2014)"

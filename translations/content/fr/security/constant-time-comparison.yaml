@@ -1,0 +1,17 @@
+title: "Comparaison d’octets en temps constant"
+oldApproach: "Arrays.equals() pour les secrets"
+modernApproach: "MessageDigest.isEqual()"
+summary: "Utilisez MessageDigest.isEqual() pour comparer des MAC, signatures, tokens ou hashes de mot de passe."
+explanation: "Les helpers d’égalité ordinaires peuvent retourner dès qu’ils trouvent une différence, ce qui convient aux données courantes mais pas aux octets dérivés de secrets. MessageDigest.isEqual() est conçu pour les comparaisons de tableaux d’octets sensibles à la sécurité et évite le motif évident de sortie anticipée. Utilisez-le pour des valeurs comme les MAC, digests, signatures et tokens de vérification."
+whyModernWins:
+- icon: "🔐"
+  title: "Vérifications de secrets plus sûres"
+  desc: "Évite la forme normale de comparaison à sortie anticipée utilisée pour les données non secrètes."
+- icon: "🧹"
+  title: "Pas de crypto maison"
+  desc: "Utilisez le helper du JDK au lieu d’écrire votre propre boucle de comparaison d’octets."
+- icon: "🎯"
+  title: "Intention claire"
+  desc: "Les reviewers voient immédiatement que la comparaison est sensible à la sécurité."
+support:
+  description: "Disponible dans tous les JDK modernes pris en charge; recommandé pour les tableaux d’octets dérivés de secrets."

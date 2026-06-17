@@ -1,0 +1,17 @@
+title: "Files.walk() pour le parcours récursif"
+oldApproach: "Récursion manuelle avec File"
+modernApproach: "Files.walk()"
+summary: "Utilisez Files.walk() pour parcourir les arbres de répertoires comme un stream de valeurs Path."
+explanation: "L’ancienne API File pousse vers une récursion écrite à la main, des vérifications null et une gestion des chemins basée sur des chaînes. Files.walk() expose un arbre de répertoires comme Stream<Path>, ce qui permet de filtrer, mapper, limiter et fermer le parcours avec try-with-resources. Elle se compose naturellement avec le reste de l’API NIO.2."
+whyModernWins:
+- icon: "🌳"
+  title: "Parcours en stream"
+  desc: "Le parcours de répertoires devient un pipeline stream normal avec filtres et maps."
+- icon: "🛡️"
+  title: "Sûr pour les ressources"
+  desc: "try-with-resources ferme les ressources du système de fichiers détenues par le stream."
+- icon: "📁"
+  title: "Basé sur Path"
+  desc: "Utilise Path et Files au lieu de File hérité et d’une logique de chemins pleine de chaînes."
+support:
+  description: "Disponible depuis le JDK 8 (mars 2014)"
