@@ -1,0 +1,17 @@
+title: "Constant-time byte comparison"
+oldApproach: "Secret-এর জন্য Arrays.equals()"
+modernApproach: "MessageDigest.isEqual()"
+summary: "MAC, signature, token বা password hash compare করার সময় MessageDigest.isEqual() ব্যবহার করুন।"
+explanation: "সাধারণ equality helper পার্থক্য পেলেই return করতে পারে; সাধারণ data-এর জন্য এটি ঠিক, কিন্তু secret-derived byte-এর জন্য অনাকাঙ্ক্ষিত। MessageDigest.isEqual() security-sensitive byte-array comparison-এর জন্য তৈরি এবং obvious early-exit pattern এড়ায়। MAC, digest, signature এবং verification token-এর মতো value-এর জন্য এটি ব্যবহার করুন।"
+whyModernWins:
+- icon: "🔐"
+  title: "নিরাপদ secret check"
+  desc: "Non-secret data-র জন্য ব্যবহৃত সাধারণ early-exit comparison shape এড়ায়।"
+- icon: "🧹"
+  title: "Custom crypto নয়"
+  desc: "নিজের byte comparison loop লেখার বদলে JDK helper ব্যবহার করুন।"
+- icon: "🎯"
+  title: "স্পষ্ট intent"
+  desc: "Reviewer সঙ্গে সঙ্গে বুঝতে পারে comparison-টি security-sensitive।"
+support:
+  description: "সমর্থিত সব modern JDK-তে উপলব্ধ; secret-derived byte array-এর জন্য সুপারিশকৃত।"

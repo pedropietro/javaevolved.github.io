@@ -1,0 +1,17 @@
+title: "Recursive traversal-এর জন্য Files.walk()"
+oldApproach: "File API দিয়ে manual recursion"
+modernApproach: "Files.walk()"
+summary: "Directory tree-গুলোকে Path value-এর stream হিসেবে traverse করতে Files.walk() ব্যবহার করুন।"
+explanation: "পুরোনো File API আপনাকে hand-written recursion, null check এবং string-ভিত্তিক path handling-এর দিকে ঠেলে দেয়। Files.walk() একটি directory tree-কে Stream<Path> হিসেবে প্রকাশ করে, ফলে traversal filter, map, limit করা যায় এবং try-with-resources দিয়ে বন্ধ করা যায়। এটি NIO.2 API-এর বাকি অংশের সঙ্গে স্বাভাবিকভাবে compose করে।"
+whyModernWins:
+- icon: "🌳"
+  title: "Stream traversal"
+  desc: "Directory walking filter এবং map সহ একটি সাধারণ stream pipeline হয়ে যায়।"
+- icon: "🛡️"
+  title: "Resource-safe"
+  desc: "try-with-resources stream-এর মালিকানাধীন file-system resource বন্ধ করে।"
+- icon: "📁"
+  title: "Path-ভিত্তিক"
+  desc: "Legacy File এবং string-heavy path logic-এর বদলে Path এবং Files ব্যবহার করে।"
+support:
+  description: "JDK 8 থেকে উপলব্ধ (মার্চ 2014)"

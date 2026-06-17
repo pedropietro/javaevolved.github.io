@@ -1,0 +1,17 @@
+title: "Jakarta Bean Validation annotation"
+oldApproach: "Imperative validation"
+modernApproach: "Constraint annotation"
+summary: "পুনরাবৃত্ত imperative validation-এর বদলে Jakarta Bean Validation constraint ব্যবহার করুন।"
+explanation: "Enterprise application প্রায়ই controller এবং service-এ একই null, range এবং format check পুনরাবৃত্তি করে। Jakarta Bean Validation @NotBlank, @Email, @Min এবং @Valid-এর মতো annotation দিয়ে এই rule-গুলো data model-এ সরিয়ে দেয়। Framework তখন business logic চালানোর আগে request body, method parameter এবং entity consistent ভাবে validate করতে পারে।"
+whyModernWins:
+- icon: "📌"
+  title: "Rule data-র পাশে"
+  desc: "Constraint সেই field বা record component-এর ওপর থাকে যেটি তারা বর্ণনা করে।"
+- icon: "🔁"
+  title: "Reusable validation"
+  desc: "একই annotation REST endpoint, service, form এবং persistence-এ কাজ করে।"
+- icon: "🧹"
+  title: "কম boilerplate"
+  desc: "Business method থেকে পুনরাবৃত্ত if block এবং manual error construction সরান।"
+support:
+  description: "Jakarta EE runtime-এ ব্যাপকভাবে উপলব্ধ; Java 11+ application-এ সাধারণভাবে ব্যবহৃত।"

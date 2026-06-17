@@ -1,0 +1,17 @@
+title: "Delimiter-এর জন্য String.join()"
+oldApproach: "StringBuilder delimiter logic"
+modernApproach: "String.join()"
+summary: "আরও readable joined string-এর জন্য manual delimiter bookkeeping-এর বদলে String.join() ব্যবহার করুন।"
+explanation: "Delimited string হাতে বানাতে সাধারণত প্রথম element ট্র্যাক করা, শর্তসাপেক্ষে separator যোগ করা এবং শেষে builder-কে string-এ রূপান্তর করা লাগে। String.join() উদ্দেশ্যটি সরাসরি প্রকাশ করে: এই value-গুলোকে এই delimiter দিয়ে join করুন। এটি label, CSV-ধাঁচের output, log এবং ছোট display string-এর জন্য আদর্শ।"
+whyModernWins:
+- icon: "✂️"
+  title: "কম code"
+  desc: "First-element flag, conditional comma বা manual builder lifecycle লাগে না।"
+- icon: "👁"
+  title: "উদ্দেশ্য আগে"
+  desc: "Delimiter এবং value একটিমাত্র expression-এ দেখা যায়।"
+- icon: "🧩"
+  title: "Iterable-এর সঙ্গে কাজ করে"
+  desc: "Array, list, set বা CharSequence value-এর যেকোনো Iterable-এর সঙ্গে ব্যবহার করুন।"
+support:
+  description: "JDK 8 থেকে উপলব্ধ (মার্চ 2014)"
