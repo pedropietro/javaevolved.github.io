@@ -1,0 +1,49 @@
+---
+id: 123
+slug: "javac-release-flag"
+title: "javac --release for cross-compilation"
+category: "tooling"
+difficulty: "intermediate"
+jdkVersion: "9"
+oldLabel: "-source/-target"
+modernLabel: "Java 9+"
+oldApproach: "-source and -target"
+modernApproach: "--release"
+oldCode: |-
+  javac -source 8 -target 8 \
+      src/main/java/com/example/App.java
+
+  // Still possible to accidentally use
+  // APIs that do not exist on Java 8.
+modernCode: |-
+  javac --release 8 \
+      src/main/java/com/example/App.java
+
+  // Language level and available APIs
+  // both match the target release.
+summary: "Use javac --release instead of only -source and -target when compiling for older Java versions."
+explanation: "The -source and -target flags control syntax and class-file version, but they do not by themselves prevent accidental use of newer JDK APIs. The --release flag selects the language level, class-file target, and platform API for the requested Java release. That makes cross-compilation safer and easier to reason about."
+whyModernWins:
+- icon: "🔒"
+  title: "API-safe"
+  desc: "The compiler rejects calls to JDK APIs that are unavailable in the selected release."
+- icon: "🧹"
+  title: "Simpler command"
+  desc: "One flag replaces source, target, and bootclasspath-style setup."
+- icon: "📦"
+  title: "Reliable artifacts"
+  desc: "Generated classes are aligned with the Java version you intend to support."
+support:
+  state: "available"
+  description: "Available since JDK 9 (September 2017)"
+prev: "security/constant-time-comparison"
+next: "enterprise/jakarta-bean-validation"
+related:
+- "tooling/single-file-execution"
+- "tooling/multi-file-source"
+- "tooling/jshell-prototyping"
+docs:
+- title: "JEP 247: Compile for Older Platform Versions"
+  href: "https://openjdk.org/jeps/247"
+- title: "javac --release documentation"
+  href: "https://docs.oracle.com/en/java/javase/25/docs/specs/man/javac.html#option-release"
