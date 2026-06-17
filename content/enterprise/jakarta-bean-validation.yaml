@@ -1,0 +1,58 @@
+---
+id: 124
+slug: "jakarta-bean-validation"
+title: "Jakarta Bean Validation annotations"
+category: "enterprise"
+difficulty: "beginner"
+jdkVersion: "11"
+oldLabel: "Manual validation"
+modernLabel: "Jakarta Validation"
+oldApproach: "Imperative checks"
+modernApproach: "Constraint annotations"
+oldCode: |-
+  public void register(UserDto user) {
+      if (user.email() == null ||
+          !user.email().contains("@")) {
+          throw new IllegalArgumentException(
+              "Invalid email");
+      }
+      if (user.age() < 18) {
+          throw new IllegalArgumentException(
+              "Must be adult");
+      }
+      save(user);
+  }
+modernCode: |-
+  public record UserDto(
+      @Email @NotBlank String email,
+      @Min(18) int age) {}
+
+  public void register(@Valid UserDto user) {
+      save(user);
+  }
+summary: "Replace repeated imperative validation with Jakarta Bean Validation constraints."
+explanation: "Enterprise applications often repeat the same null, range, and format checks in controllers and services. Jakarta Bean Validation moves those rules onto the data model with annotations such as @NotBlank, @Email, @Min, and @Valid. Frameworks can then validate request bodies, method parameters, and entities consistently before business logic runs."
+whyModernWins:
+- icon: "📌"
+  title: "Rules live with data"
+  desc: "Constraints sit on the fields or record components they describe."
+- icon: "🔁"
+  title: "Reusable validation"
+  desc: "The same annotations work across REST endpoints, services, forms, and persistence."
+- icon: "🧹"
+  title: "Less boilerplate"
+  desc: "Remove repeated if blocks and custom error construction from business methods."
+support:
+  state: "available"
+  description: "Widely available in Jakarta EE runtimes; commonly used with Java 11+ applications."
+prev: "tooling/javac-release-flag"
+next: null
+related:
+- "enterprise/servlet-vs-jaxrs"
+- "enterprise/ejb-vs-cdi"
+- "errors/record-based-errors"
+docs:
+- title: "Jakarta Validation Specification"
+  href: "https://jakarta.ee/specifications/bean-validation/"
+- title: "Jakarta Validation API"
+  href: "https://jakarta.ee/specifications/bean-validation/3.1/apidocs/"
