@@ -1,0 +1,61 @@
+---
+id: 114
+slug: "local-records"
+title: "Local records for temporary data"
+category: "language"
+difficulty: "intermediate"
+jdkVersion: "16"
+oldLabel: "Helper classes"
+modernLabel: "Java 16+"
+oldApproach: "Ad-hoc helper class"
+modernApproach: "Local record"
+oldCode: |-
+  class ReportService {
+      private static final class Row {
+          final String department;
+          final long total;
+
+          Row(String department, long total) {
+              this.department = department;
+              this.total = total;
+          }
+      }
+
+      void print(List<Order> orders) {
+          // Row is visible to the whole class
+      }
+  }
+modernCode: |-
+  void print(List<Order> orders) {
+      record Row(String department, long total) {}
+
+      orders.stream()
+          .map(o -> new Row(o.department(), o.total()))
+          .forEach(System.out::println);
+  }
+summary: "Use local records to model short-lived data shapes exactly where they are needed."
+explanation: "When a helper type exists only for one calculation, declaring a class-level DTO makes the surrounding class noisier than necessary. A local record keeps the temporary shape near the stream, query, or transformation that uses it. You still get a named type, accessors, equals, hashCode, and toString, but the scope stays small."
+whyModernWins:
+- icon: "📍"
+  title: "Tighter scope"
+  desc: "The helper type is visible only inside the method that needs it."
+- icon: "🧩"
+  title: "Clear data shape"
+  desc: "The record declaration documents the temporary fields without a full DTO class."
+- icon: "✂️"
+  title: "Less boilerplate"
+  desc: "Accessors, equality, hashCode, and toString are generated automatically."
+support:
+  state: "available"
+  description: "Widely available since JDK 16 (March 2021)"
+prev: "enterprise/jdbc-vs-jooq"
+next: "collections/comparator-null-handling"
+related:
+- "language/records-for-data-classes"
+- "language/compact-canonical-constructor"
+- "streams/stream-tolist"
+docs:
+- title: "JEP 395: Records"
+  href: "https://openjdk.org/jeps/395"
+- title: "Record Classes (Oracle Java Tutorials)"
+  href: "https://docs.oracle.com/en/java/javase/25/language/records.html"
