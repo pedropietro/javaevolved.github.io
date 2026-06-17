@@ -1,0 +1,48 @@
+---
+id: 115
+slug: "comparator-null-handling"
+title: "Null-safe Comparator ordering"
+category: "collections"
+difficulty: "beginner"
+jdkVersion: "8"
+oldLabel: "Manual null checks"
+modernLabel: "Java 8+"
+oldApproach: "Custom compare branches"
+modernApproach: "Comparator.nullsLast()"
+oldCode: |-
+  names.sort((a, b) -> {
+      if (a == null && b == null) return 0;
+      if (a == null) return 1;
+      if (b == null) return -1;
+      return a.compareToIgnoreCase(b);
+  });
+modernCode: |-
+  names.sort(
+      Comparator.nullsLast(
+          String.CASE_INSENSITIVE_ORDER));
+summary: "Use Comparator.nullsFirst() or nullsLast() instead of hand-written null branches."
+explanation: "Sorting nullable values by hand often repeats the same fragile if/else chain in every comparator. Comparator.nullsFirst() and nullsLast() wrap the real ordering and make the null policy explicit. The result is shorter, easier to read, and less likely to accidentally throw a NullPointerException during sorting."
+whyModernWins:
+- icon: "🧹"
+  title: "Less branching"
+  desc: "One factory method replaces several repeated null-check branches."
+- icon: "👁"
+  title: "Clear policy"
+  desc: "The code says immediately whether null values appear first or last."
+- icon: "🔒"
+  title: "Safer sorting"
+  desc: "The wrapped comparator is called only when both values are non-null."
+support:
+  state: "available"
+  description: "Available since JDK 8 (March 2014)"
+prev: "language/local-records"
+next: "strings/string-join"
+related:
+- "collections/sequenced-collections"
+- "streams/stream-tolist"
+- "errors/null-in-switch"
+docs:
+- title: "Comparator.nullsLast() Javadoc"
+  href: "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Comparator.html#nullsLast(java.util.Comparator)"
+- title: "Comparator.nullsFirst() Javadoc"
+  href: "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Comparator.html#nullsFirst(java.util.Comparator)"
