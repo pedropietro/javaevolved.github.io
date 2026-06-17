@@ -1,0 +1,17 @@
+title: "مقارنة bytes بزمن ثابت"
+oldApproach: "Arrays.equals() للأسرار"
+modernApproach: "MessageDigest.isEqual()"
+summary: "استخدم MessageDigest.isEqual() عند مقارنة MACs أو التواقيع أو tokens أو hashes كلمات المرور."
+explanation: "يمكن لمساعدات المساواة العادية أن تعود بمجرد العثور على اختلاف، وهذا مناسب للبيانات العادية لكنه غير مرغوب في bytes المشتقة من أسرار. صُممت MessageDigest.isEqual() لمقارنات byte arrays الحساسة أمنياً وتتجنب نمط الخروج المبكر الواضح. استخدمها لقيم مثل MACs و digests و signatures و tokens التحقق."
+whyModernWins:
+- icon: "🔐"
+  title: "فحوص أسرار أكثر أماناً"
+  desc: "يتجنب شكل المقارنة العادي ذي الخروج المبكر المستخدم للبيانات غير السرية."
+- icon: "🧹"
+  title: "لا crypto مخصص"
+  desc: "استخدم مساعد JDK بدلاً من كتابة حلقة مقارنة bytes خاصة بك."
+- icon: "🎯"
+  title: "نية واضحة"
+  desc: "يرى المراجعون فوراً أن المقارنة حساسة أمنياً."
+support:
+  description: "متاح في جميع إصدارات JDK الحديثة المدعومة؛ موصى به لـ byte arrays المشتقة من أسرار."

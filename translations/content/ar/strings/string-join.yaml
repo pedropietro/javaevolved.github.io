@@ -1,0 +1,17 @@
+title: "String.join() للفواصل"
+oldApproach: "منطق الفواصل باستخدام StringBuilder"
+modernApproach: "String.join()"
+summary: "استبدل تتبع الفواصل اليدوي بـ String.join() للحصول على سلاسل مدمجة أكثر قابلية للقراءة."
+explanation: "بناء سلسلة مفصولة يدوياً يعني عادة تتبع العنصر الأول، وإضافة الفواصل بشكل شرطي، ثم تحويل builder إلى سلسلة في النهاية. تعبّر String.join() عن النية مباشرة: اربط هذه القيم بهذا الفاصل. وهي مناسبة للتسميات والمخرجات الشبيهة بـ CSV والسجلات وسلاسل العرض الصغيرة."
+whyModernWins:
+- icon: "✂️"
+  title: "كود أقل"
+  desc: "لا حاجة لعلامة أول عنصر أو فاصلة شرطية أو دورة حياة يدوية للـ builder."
+- icon: "👁"
+  title: "النية أولاً"
+  desc: "الفاصل والقيم ظاهرة في تعبير واحد."
+- icon: "🧩"
+  title: "يعمل مع Iterable"
+  desc: "استخدمه مع arrays أو lists أو sets أو أي Iterable لقيم CharSequence."
+support:
+  description: "متاح منذ JDK 8 (مارس 2014)"

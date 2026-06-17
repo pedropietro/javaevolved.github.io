@@ -1,0 +1,17 @@
+title: "مهلات CompletableFuture"
+oldApproach: "مهمة مجدولة يدوياً"
+modernApproach: "orTimeout()"
+summary: "استخدم CompletableFuture.orTimeout() أو completeOnTimeout() بدلاً من scheduler منفصل."
+explanation: "قبل Java 9، كان تطبيق مهلة على CompletableFuture يتطلب إنشاء ScheduledExecutorService وربط مهمة تكمل future يدوياً. تضع طرق المهلة هذا السلوك على future نفسه. استخدم orTimeout() عندما يجب أن تفشل العملية، أو completeOnTimeout() عندما تريد قيمة بديلة."
+whyModernWins:
+- icon: "⏱️"
+  title: "مهلة مدمجة"
+  desc: "ترتبط سياسة المهلة مباشرة بالحساب غير المتزامن."
+- icon: "🧹"
+  title: "بلا boilerplate للـ scheduler"
+  desc: "لا executor إضافي ولا مهمة مجدولة ولا كتلة إكمال استثنائي يدوية."
+- icon: "🔀"
+  title: "فشل أو fallback بوضوح"
+  desc: "اختر orTimeout() للفشل أو completeOnTimeout() لقيمة افتراضية."
+support:
+  description: "متاح منذ JDK 9 (سبتمبر 2017)"

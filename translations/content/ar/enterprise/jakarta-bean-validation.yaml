@@ -1,0 +1,17 @@
+title: "تعليقات Jakarta Bean Validation"
+oldApproach: "تحقق إجرائي"
+modernApproach: "تعليقات قيود"
+summary: "استبدل التحقق الإجرائي المتكرر بقيود Jakarta Bean Validation."
+explanation: "تكرر تطبيقات enterprise غالباً فحوصات null والنطاق والتنسيق نفسها في controllers و services. تنقل Jakarta Bean Validation هذه القواعد إلى نموذج البيانات باستخدام تعليقات مثل @NotBlank و @Email و @Min و @Valid. يمكن للأطر بعد ذلك التحقق من request bodies ومعاملات الطرق والكيانات بشكل متسق قبل تشغيل منطق الأعمال."
+whyModernWins:
+- icon: "📌"
+  title: "القواعد قرب البيانات"
+  desc: "توجد القيود على الحقول أو مكونات record التي تصفها."
+- icon: "🔁"
+  title: "تحقق قابل لإعادة الاستخدام"
+  desc: "تعمل التعليقات نفسها في REST endpoints و services و forms و persistence."
+- icon: "🧹"
+  title: "Boilerplate أقل"
+  desc: "أزل كتل if المتكررة وإنشاء الأخطاء اليدوي من طرق الأعمال."
+support:
+  description: "متاح على نطاق واسع في runtimes Jakarta EE؛ شائع الاستخدام في تطبيقات Java 11+."

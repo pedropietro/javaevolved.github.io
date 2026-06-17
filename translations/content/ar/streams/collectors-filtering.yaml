@@ -1,0 +1,17 @@
+title: "Collectors.filtering() كـ downstream"
+oldApproach: "تصفية stream قبل التجميع"
+modernApproach: "تصفية downstream"
+summary: "استخدم Collectors.filtering() عندما يكون الفلتر جزءاً من collector downstream داخل التجميع."
+explanation: "التصفية قبل التجميع تزيل عناصر كاملة قبل تشغيل المصنف، لذلك تختفي المجموعات التي لا تحتوي على قيم مطابقة. تنقل Collectors.filtering() الشرط إلى collector downstream. بهذه الطريقة يستطيع grouping إنشاء كل مجموعة، بينما يستقبل كل bucket القيم التي تطابق الشرط فقط."
+whyModernWins:
+- icon: "📦"
+  title: "يحافظ على المجموعات"
+  desc: "يمكن أن توجد المجموعات حتى عندما تكون نتيجة downstream المصفاة فارغة."
+- icon: "🎯"
+  title: "الفلتر في المستوى الصحيح"
+  desc: "يُطبّق الشرط داخل كل bucket مجمع، وليس قبل التجميع."
+- icon: "🧩"
+  title: "تركيب نظيف"
+  desc: "يعمل مع groupingBy و partitioningBy و mapping و flatMapping وغيرها من collectors downstream."
+support:
+  description: "متاح منذ JDK 9 (سبتمبر 2017)"

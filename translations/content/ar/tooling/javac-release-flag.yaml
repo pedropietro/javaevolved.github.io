@@ -1,0 +1,17 @@
+title: "javac --release للترجمة المتقاطعة"
+oldApproach: "-source و -target"
+modernApproach: "--release"
+summary: "استخدم javac --release بدلاً من -source و -target فقط عند الترجمة لإصدارات Java أقدم."
+explanation: "تتحكم flags -source و -target في syntax وإصدار class file، لكنها لا تمنع وحدها الاستخدام غير المقصود لـ APIs أحدث من JDK. تختار flag --release مستوى اللغة وهدف class file و API المنصة لإصدار Java المطلوب. هذا يجعل الترجمة المتقاطعة أكثر أماناً وأسهل للفهم."
+whyModernWins:
+- icon: "🔒"
+  title: "آمن من ناحية API"
+  desc: "يرفض المترجم استدعاءات APIs من JDK غير المتاحة في release المحددة."
+- icon: "🧹"
+  title: "أمر أبسط"
+  desc: "تستبدل flag واحدة إعداد source و target وإعدادات شبيهة بـ bootclasspath."
+- icon: "📦"
+  title: "Artifacts موثوقة"
+  desc: "تكون classes الناتجة متوافقة مع إصدار Java الذي تريد دعمه."
+support:
+  description: "متاح منذ JDK 9 (سبتمبر 2017)"
