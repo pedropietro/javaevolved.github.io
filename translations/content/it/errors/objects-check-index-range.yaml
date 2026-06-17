@@ -1,0 +1,17 @@
+title: "Controlli di intervallo degli indici con Objects"
+oldApproach: "Validazione manuale dei limiti"
+modernApproach: "Objects.checkFromIndexSize()"
+summary: "Usa Objects.checkIndex(), checkFromToIndex() e checkFromIndexSize() per errori di limite coerenti."
+explanation: "I controlli manuali degli intervalli sono facili da sbagliare in modo sottile, soprattutto quando offset e length possono andare in overflow o quando il messaggio di eccezione deve restare coerente. Gli helper di controllo intervallo di Objects centralizzano i pattern comuni di validazione degli indici e restituiscono l'indice validato, così il valore controllato fluisce direttamente nell'operazione successiva."
+whyModernWins:
+- icon: "🔒"
+  title: "Meno bug di bordo"
+  desc: "Il JDK gestisce in modo coerente i casi comuni di off-by-one e intervalli non validi."
+- icon: "🧹"
+  title: "Meno codice custom"
+  desc: "Sostituisci blocchi if ripetuti e messaggi di eccezione ad hoc con un helper."
+- icon: "➡️"
+  title: "Componibile"
+  desc: "L'indice validato viene restituito, quindi può alimentare il successivo slice o lookup."
+support:
+  description: "Disponibile dal JDK 9 (settembre 2017)"

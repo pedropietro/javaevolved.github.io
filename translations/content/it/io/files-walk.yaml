@@ -1,0 +1,17 @@
+title: "Files.walk() per attraversamento ricorsivo"
+oldApproach: "Ricorsione manuale con File"
+modernApproach: "Files.walk()"
+summary: "Usa Files.walk() per attraversare alberi di directory come stream di valori Path."
+explanation: "La vecchia API File porta verso ricorsione scritta a mano, controlli null e gestione dei path basata su stringhe. Files.walk() espone un albero di directory come Stream<Path>, così l'attraversamento può essere filtrato, mappato, limitato e chiuso con try-with-resources. Si compone naturalmente con il resto dell'API NIO.2."
+whyModernWins:
+- icon: "🌳"
+  title: "Attraversamento come stream"
+  desc: "Camminare tra directory diventa una normale pipeline di stream con filtri e map."
+- icon: "🛡️"
+  title: "Sicuro per le risorse"
+  desc: "try-with-resources chiude le risorse del file system possedute dallo stream."
+- icon: "📁"
+  title: "Basato su Path"
+  desc: "Usa Path e Files invece del vecchio File e della logica di path piena di stringhe."
+support:
+  description: "Disponibile dal JDK 8 (marzo 2014)"
