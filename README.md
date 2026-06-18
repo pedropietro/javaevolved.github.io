@@ -7,11 +7,11 @@ A collection of side-by-side code comparisons showing old Java patterns next to 
 🔗 **[javaevolved.github.io](https://javaevolved.github.io)**
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-live-brightgreen)](https://javaevolved.github.io)
-[![Snippets](https://img.shields.io/badge/snippets-112-blue)](#categories)
+[![Snippets](https://img.shields.io/badge/snippets-113-blue)](#categories)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange)](#contributing)
 
-> **Note:** Update the snippet count badge above when adding new patterns.
+> **Note:** Update the snippet count badge above when adding or removing patterns.
 
 ---
 
@@ -44,7 +44,7 @@ Each comparison includes an explanation of *why* the modern approach is better, 
 
 This site uses a **JSON/YAML-first** build pipeline:
 
-- **Source of truth**: Individual `content/category/slug.json` files (112 patterns across 11 category folders)
+- **Source of truth**: Individual `content/category/slug.json` files (113 patterns across 11 category folders)
 - **Templates**: `templates/` — shared HTML templates with `{{placeholder}}` tokens for content and UI strings
 - **Generator**: `html-generators/generate.java` — JBang script that produces all HTML pages, localized variants, and `data/snippets.json`
 - **Translations**: `translations/strings/{locale}.yaml` for UI strings, `translations/content/{locale}/` for pattern content (YAML)
@@ -54,7 +54,7 @@ Generated files (`site/category/*.html`, `site/{locale}/`, and `site/data/snippe
 
 ### Internationalization
 
-The site supports 11 languages: English, Deutsch, Español, Português (Brasil), 中文 (简体), العربية, Français, 日本語, 한국어, Italian and Polski. See [`specs/i18n/i18n-spec.md`](specs/i18n/i18n-spec.md) for the full specification.
+The site supports 14 languages: English, Deutsch, Español, Português (Brasil), 中文 (简体), العربية, Français, 日本語, 한국어, বাংলা, Italiano, Polski, Türkçe and Русский. See [`specs/i18n/i18n-spec.md`](specs/i18n/i18n-spec.md) for the full specification.
 
 ## Build & run locally
 
