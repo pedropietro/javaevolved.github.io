@@ -75,10 +75,10 @@ List<String> loadSourceContentPaths(SequencedSet<String> categories) throws IOEx
         try (var files = Files.list(categoryDir)) {
             files
                 .filter(Files::isRegularFile)
-                .filter(AuditTranslations::hasContentExtension)
+                .filter(path -> hasContentExtension(path))
                 .map(CONTENT_DIR::relativize)
                 .map(Path::toString)
-                .map(AuditTranslations::normalizePath)
+                .map(path -> normalizePath(path))
                 .sorted()
                 .forEach(sourcePaths::add);
         }
@@ -124,10 +124,10 @@ List<String> findOrphanedTranslations(String locale, List<String> sourcePaths) t
     try (var files = Files.walk(localeDir)) {
         files
             .filter(Files::isRegularFile)
-            .filter(AuditTranslations::hasContentExtension)
+            .filter(path -> hasContentExtension(path))
             .map(localeDir::relativize)
             .map(Path::toString)
-            .map(AuditTranslations::normalizePath)
+            .map(path -> normalizePath(path))
             .filter(path -> !sourceSet.contains(path))
             .map(path -> "translations/content/%s/%s".formatted(locale, path))
             .sorted()
