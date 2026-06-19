@@ -70,7 +70,7 @@ The site supports 14 languages: English, Deutsch, Español, Português (Brasil),
 jbang html-generators/generate.java
 
 # Serve locally need to replace path with absolute path to site folder 
-jwebserver -b 0.0.0.0 -d path/to/site -p 8090
+jwebserver -b 0.0.0.0 -d site -p 8090
 # Open http://localhost:8090
 ```
 
