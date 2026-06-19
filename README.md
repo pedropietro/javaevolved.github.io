@@ -7,7 +7,7 @@ A collection of side-by-side code comparisons showing old Java patterns next to 
 🔗 **[javaevolved.github.io](https://javaevolved.github.io)**
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-live-brightgreen)](https://javaevolved.github.io)
-[![Snippets](https://img.shields.io/badge/snippets-113-blue)](#categories)
+[![Snippets](https://img.shields.io/badge/snippets-166-blue)](#categories)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange)](#contributing)
 
@@ -44,7 +44,7 @@ Each comparison includes an explanation of *why* the modern approach is better, 
 
 This site uses a **JSON/YAML-first** build pipeline:
 
-- **Source of truth**: Individual `content/category/slug.json` files (113 patterns across 11 category folders)
+- **Source of truth**: Individual `content/category/slug.json` files (166 patterns across 11 category folders)
 - **Templates**: `templates/` — shared HTML templates with `{{placeholder}}` tokens for content and UI strings
 - **Generator**: `html-generators/generate.java` — JBang script that produces all HTML pages, localized variants, and `data/snippets.json`
 - **Translations**: `translations/strings/{locale}.yaml` for UI strings, `translations/content/{locale}/` for pattern content (YAML)
